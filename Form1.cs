@@ -21,12 +21,13 @@ namespace NoteApp
         {
             do
             {
-                mainMenu.SplitterDistance--;
-                closeLeftPanel.Location = new Point(mainMenu.SplitterDistance - 34, this.Height - 73);
+                this.mainMenu.SplitterDistance--;
+                this.closeLeftPanel.Location = new Point(this.mainMenu.SplitterDistance - 34, this.Height - 73);
             }
-            while (mainMenu.SplitterDistance > closeLeftPanel.Size.Width);
+            while (this.mainMenu.SplitterDistance > this.closeLeftPanel.Size.Width);
 
-            mainMenu.Panel1Collapsed = !mainMenu.Panel1Collapsed;
+            OpenLeftPanel.Visible = true;
+            this.mainMenu.Panel1Collapsed = !this.mainMenu.Panel1Collapsed;
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -41,7 +42,21 @@ namespace NoteApp
 
         private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
         {
-            closeLeftPanel.Location = new Point((int)(mainMenu.SplitterDistance * 0.97) - 34, (int)(mainMenu.Height*0.97) - 29);
+            this.closeLeftPanel.Location = new Point((int)(this.mainMenu.SplitterDistance * 0.97) - 34, (int)(this.mainMenu.Height*0.97) - 29);
+        }
+
+        private void OpenLeftPanel_Click(object sender, EventArgs e)
+        {
+            this.mainMenu.Panel1Collapsed = !this.mainMenu.Panel1Collapsed;
+            OpenLeftPanel.Visible = false;
+
+            do
+            {
+                this.mainMenu.SplitterDistance++;
+                this.closeLeftPanel.Location = new Point(this.mainMenu.SplitterDistance - 34, this.Height - 73);
+            }
+            while (this.mainMenu.SplitterDistance <= 260);
+
         }
     }
 }
