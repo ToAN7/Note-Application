@@ -12,6 +12,7 @@ namespace NoteApp
 {
     public partial class fMainMenu39Toan : Form
     {
+        Timer timer;
         // Initialize the form
         public fMainMenu39Toan()
         {
@@ -115,6 +116,41 @@ namespace NoteApp
                 this.trvwFolderLocation39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel1.Width - 6, this.splcntMainMenu39Toan.Panel1.Height - 6 - this.tblpnlLayout39Toan.Height);
                 this.rtxtTextContent39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel2.Width - 6, this.splcntMainMenu39Toan.Panel2.Height - 6);
                 this.tblpnlLayout39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel1.Width - 6, this.tblpnlLayout39Toan.Height);
+            }
+        }
+
+        // Auto save the content of the text box
+        private void rtxtTextContent39Toan_AutoSave(object sender, EventArgs e)
+        {
+            timer = new Timer();
+            timer.Interval = 3000;
+            timer.Tick += (object sdr, EventArgs ent) =>
+            {
+                if (!rtxtTextContent39Toan.ReadOnly)
+                {
+                    System.IO.File.WriteAllText(trvwFolderLocation39Toan.SelectedNode.FullPath, rtxtTextContent39Toan.Text);
+                }
+            };
+            timer.Start();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) { 
+                rtxtTextContent39Toan_AutoSave(sender, e);
+            }
+            else
+            {
+                timer.Stop();
+            }
+        }
+
+        private void rtxtTextContent39Toan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                timer.Stop();
+                timer.Start();
             }
         }
     }
