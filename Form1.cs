@@ -36,13 +36,6 @@ namespace NoteApp
             btnOpenLeftPanel39Toan.Visible = false;
         }
 
-        // Resize left panel
-        private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
-        {
-            this.trvwFolderLocation39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel1.Width - 6, this.splcntMainMenu39Toan.Panel1.Height - 6 - this.tblpnlLayout39Toan.Height);
-            this.rtxtTextContent39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel2.Width - 6, this.splcntMainMenu39Toan.Panel2.Height - 6);
-        }
-
         // Load the selected path into the tree view
         private void loadFileIntoTreeView(String path)
         {
@@ -107,6 +100,21 @@ namespace NoteApp
             {
                 rtxtTextContent39Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
                 rtxtTextContent39Toan.ReadOnly = false;
+            }
+        }
+
+        private void splcntMainMenu39Toan_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            if (this.splcntMainMenu39Toan.SplitterDistance < this.splcntMainMenu39Toan.Panel1MinSize + 5)
+            {
+                closeLeftPanel_Click(sender, e);
+                this.splcntMainMenu39Toan.SplitterDistance = 346;
+            }
+            else
+            {
+                this.trvwFolderLocation39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel1.Width - 6, this.splcntMainMenu39Toan.Panel1.Height - 6 - this.tblpnlLayout39Toan.Height);
+                this.rtxtTextContent39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel2.Width - 6, this.splcntMainMenu39Toan.Panel2.Height - 6);
+                this.tblpnlLayout39Toan.Size = new Size(this.splcntMainMenu39Toan.Panel1.Width - 6, this.tblpnlLayout39Toan.Height);
             }
         }
     }

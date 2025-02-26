@@ -57,7 +57,6 @@
             this.splcntMainMenu39Toan.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splcntMainMenu39Toan.Panel1.Controls.Add(this.trvwFolderLocation39Toan);
             this.splcntMainMenu39Toan.Panel1.Controls.Add(this.tblpnlLayout39Toan);
-            this.splcntMainMenu39Toan.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
             // 
             // splcntMainMenu39Toan.Panel2
             // 
@@ -67,6 +66,7 @@
             this.splcntMainMenu39Toan.SplitterDistance = 346;
             this.splcntMainMenu39Toan.SplitterWidth = 5;
             this.splcntMainMenu39Toan.TabIndex = 0;
+            this.splcntMainMenu39Toan.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splcntMainMenu39Toan_SplitterMoved);
             // 
             // trvwFolderLocation39Toan
             // 
