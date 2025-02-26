@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApp", "NoteApp.csproj", "{5AD5161C-1AC2-4BF2-9C57-5CA1ABD4EBEE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BuildProject", "..\BuildProject\BuildProject.vdproj", "{7BE86DDD-C13F-1B2B-3956-2514D7519339}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{5AD5161C-1AC2-4BF2-9C57-5CA1ABD4EBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AD5161C-1AC2-4BF2-9C57-5CA1ABD4EBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AD5161C-1AC2-4BF2-9C57-5CA1ABD4EBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE86DDD-C13F-1B2B-3956-2514D7519339}.Debug|Any CPU.ActiveCfg = Debug
+		{7BE86DDD-C13F-1B2B-3956-2514D7519339}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

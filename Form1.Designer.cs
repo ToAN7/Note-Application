@@ -33,11 +33,11 @@
             this.tblpnlLayout39Toan = new System.Windows.Forms.TableLayoutPanel();
             this.btnCloseLeftPanel39Toan = new System.Windows.Forms.Button();
             this.lblFolderName39Toan = new System.Windows.Forms.Label();
-            this.btnOpenLeftPanel39Toan = new System.Windows.Forms.Button();
-            this.fldbrsdlgOpenFolder39Toan = new System.Windows.Forms.FolderBrowserDialog();
             this.btnOpenFolderDialog39Toan = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnOpenLeftPanel39Toan = new System.Windows.Forms.Button();
             this.rtxtTextContent39Toan = new System.Windows.Forms.RichTextBox();
+            this.fldbrsdlgOpenFolder39Toan = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splcntMainMenu39Toan)).BeginInit();
             this.splcntMainMenu39Toan.Panel1.SuspendLayout();
             this.splcntMainMenu39Toan.Panel2.SuspendLayout();
@@ -57,7 +57,6 @@
             this.splcntMainMenu39Toan.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splcntMainMenu39Toan.Panel1.Controls.Add(this.trvwFolderLocation39Toan);
             this.splcntMainMenu39Toan.Panel1.Controls.Add(this.tblpnlLayout39Toan);
-            this.splcntMainMenu39Toan.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             this.splcntMainMenu39Toan.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
             // 
             // splcntMainMenu39Toan.Panel2
@@ -95,7 +94,7 @@
             this.tblpnlLayout39Toan.Name = "tblpnlLayout39Toan";
             this.tblpnlLayout39Toan.RowCount = 1;
             this.tblpnlLayout39Toan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblpnlLayout39Toan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblpnlLayout39Toan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tblpnlLayout39Toan.Size = new System.Drawing.Size(339, 47);
             this.tblpnlLayout39Toan.TabIndex = 2;
             // 
@@ -121,18 +120,6 @@
             this.lblFolderName39Toan.TabIndex = 2;
             this.lblFolderName39Toan.Text = "Folder";
             // 
-            // btnOpenLeftPanel39Toan
-            // 
-            this.btnOpenLeftPanel39Toan.Location = new System.Drawing.Point(0, 20);
-            this.btnOpenLeftPanel39Toan.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOpenLeftPanel39Toan.Name = "btnOpenLeftPanel39Toan";
-            this.btnOpenLeftPanel39Toan.Size = new System.Drawing.Size(52, 43);
-            this.btnOpenLeftPanel39Toan.TabIndex = 2;
-            this.btnOpenLeftPanel39Toan.Text = ">>";
-            this.btnOpenLeftPanel39Toan.UseVisualStyleBackColor = true;
-            this.btnOpenLeftPanel39Toan.Visible = false;
-            this.btnOpenLeftPanel39Toan.Click += new System.EventHandler(this.OpenLeftPanel_Click);
-            // 
             // btnOpenFolderDialog39Toan
             // 
             this.btnOpenFolderDialog39Toan.Location = new System.Drawing.Point(172, 3);
@@ -151,6 +138,18 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenLeftPanel39Toan
+            // 
+            this.btnOpenLeftPanel39Toan.Location = new System.Drawing.Point(0, 20);
+            this.btnOpenLeftPanel39Toan.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOpenLeftPanel39Toan.Name = "btnOpenLeftPanel39Toan";
+            this.btnOpenLeftPanel39Toan.Size = new System.Drawing.Size(52, 43);
+            this.btnOpenLeftPanel39Toan.TabIndex = 2;
+            this.btnOpenLeftPanel39Toan.Text = ">>";
+            this.btnOpenLeftPanel39Toan.UseVisualStyleBackColor = true;
+            this.btnOpenLeftPanel39Toan.Visible = false;
+            this.btnOpenLeftPanel39Toan.Click += new System.EventHandler(this.OpenLeftPanel_Click);
             // 
             // rtxtTextContent39Toan
             // 
