@@ -1,6 +1,6 @@
 ﻿namespace NoteApp
 {
-    partial class Note
+    partial class fMainMenu39Toan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,128 +28,172 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu = new System.Windows.Forms.SplitContainer();
-            this.OpenLeftPanel = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.closeLeftPanel = new System.Windows.Forms.Button();
-            this.FolderName = new System.Windows.Forms.Label();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.mainMenu)).BeginInit();
-            this.mainMenu.Panel1.SuspendLayout();
-            this.mainMenu.Panel2.SuspendLayout();
-            this.mainMenu.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.splcntMainMenu39Toan = new System.Windows.Forms.SplitContainer();
+            this.trvwFolderLocation39Toan = new System.Windows.Forms.TreeView();
+            this.tblpnlLayout39Toan = new System.Windows.Forms.TableLayoutPanel();
+            this.btnCloseLeftPanel39Toan = new System.Windows.Forms.Button();
+            this.lblFolderName39Toan = new System.Windows.Forms.Label();
+            this.btnOpenLeftPanel39Toan = new System.Windows.Forms.Button();
+            this.fldbrsdlgOpenFolder39Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnOpenFolderDialog39Toan = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.rtxtTextContent39Toan = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splcntMainMenu39Toan)).BeginInit();
+            this.splcntMainMenu39Toan.Panel1.SuspendLayout();
+            this.splcntMainMenu39Toan.Panel2.SuspendLayout();
+            this.splcntMainMenu39Toan.SuspendLayout();
+            this.tblpnlLayout39Toan.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mainMenu
+            // splcntMainMenu39Toan
             // 
-            this.mainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
+            this.splcntMainMenu39Toan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splcntMainMenu39Toan.Location = new System.Drawing.Point(0, 0);
+            this.splcntMainMenu39Toan.Margin = new System.Windows.Forms.Padding(4);
+            this.splcntMainMenu39Toan.Name = "splcntMainMenu39Toan";
             // 
-            // mainMenu.Panel1
+            // splcntMainMenu39Toan.Panel1
             // 
-            this.mainMenu.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.mainMenu.Panel1.Controls.Add(this.treeView1);
-            this.mainMenu.Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.mainMenu.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
-            this.mainMenu.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
+            this.splcntMainMenu39Toan.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.splcntMainMenu39Toan.Panel1.Controls.Add(this.trvwFolderLocation39Toan);
+            this.splcntMainMenu39Toan.Panel1.Controls.Add(this.tblpnlLayout39Toan);
+            this.splcntMainMenu39Toan.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            this.splcntMainMenu39Toan.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
             // 
-            // mainMenu.Panel2
+            // splcntMainMenu39Toan.Panel2
             // 
-            this.mainMenu.Panel2.Controls.Add(this.OpenLeftPanel);
-            this.mainMenu.Size = new System.Drawing.Size(784, 561);
-            this.mainMenu.SplitterDistance = 260;
-            this.mainMenu.TabIndex = 0;
+            this.splcntMainMenu39Toan.Panel2.Controls.Add(this.btnOpenLeftPanel39Toan);
+            this.splcntMainMenu39Toan.Panel2.Controls.Add(this.rtxtTextContent39Toan);
+            this.splcntMainMenu39Toan.Size = new System.Drawing.Size(1045, 690);
+            this.splcntMainMenu39Toan.SplitterDistance = 346;
+            this.splcntMainMenu39Toan.SplitterWidth = 5;
+            this.splcntMainMenu39Toan.TabIndex = 0;
             // 
-            // OpenLeftPanel
+            // trvwFolderLocation39Toan
             // 
-            this.OpenLeftPanel.Location = new System.Drawing.Point(0, 16);
-            this.OpenLeftPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenLeftPanel.Name = "OpenLeftPanel";
-            this.OpenLeftPanel.Size = new System.Drawing.Size(39, 35);
-            this.OpenLeftPanel.TabIndex = 2;
-            this.OpenLeftPanel.Text = ">>";
-            this.OpenLeftPanel.UseVisualStyleBackColor = true;
-            this.OpenLeftPanel.Visible = false;
-            this.OpenLeftPanel.Click += new System.EventHandler(this.OpenLeftPanel_Click);
+            this.trvwFolderLocation39Toan.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.trvwFolderLocation39Toan.Location = new System.Drawing.Point(4, 4);
+            this.trvwFolderLocation39Toan.Margin = new System.Windows.Forms.Padding(4);
+            this.trvwFolderLocation39Toan.Name = "trvwFolderLocation39Toan";
+            this.trvwFolderLocation39Toan.Size = new System.Drawing.Size(337, 628);
+            this.trvwFolderLocation39Toan.TabIndex = 0;
+            this.trvwFolderLocation39Toan.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvwFolderLocation39Toan_NodeMouseClick);
             // 
-            // treeView1
+            // tblpnlLayout39Toan
             // 
-            this.treeView1.Location = new System.Drawing.Point(3, 3);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(254, 511);
-            this.treeView1.TabIndex = 0;
+            this.tblpnlLayout39Toan.ColumnCount = 4;
+            this.tblpnlLayout39Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpnlLayout39Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tblpnlLayout39Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tblpnlLayout39Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblpnlLayout39Toan.Controls.Add(this.btnCloseLeftPanel39Toan, 3, 0);
+            this.tblpnlLayout39Toan.Controls.Add(this.lblFolderName39Toan, 0, 0);
+            this.tblpnlLayout39Toan.Controls.Add(this.btnOpenFolderDialog39Toan, 1, 0);
+            this.tblpnlLayout39Toan.Controls.Add(this.button2, 2, 0);
+            this.tblpnlLayout39Toan.Location = new System.Drawing.Point(4, 640);
+            this.tblpnlLayout39Toan.Margin = new System.Windows.Forms.Padding(4);
+            this.tblpnlLayout39Toan.Name = "tblpnlLayout39Toan";
+            this.tblpnlLayout39Toan.RowCount = 1;
+            this.tblpnlLayout39Toan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblpnlLayout39Toan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblpnlLayout39Toan.Size = new System.Drawing.Size(339, 47);
+            this.tblpnlLayout39Toan.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // btnCloseLeftPanel39Toan
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.closeLeftPanel, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.FolderName, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 520);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 38);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.btnCloseLeftPanel39Toan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseLeftPanel39Toan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseLeftPanel39Toan.Location = new System.Drawing.Point(258, 5);
+            this.btnCloseLeftPanel39Toan.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCloseLeftPanel39Toan.Name = "btnCloseLeftPanel39Toan";
+            this.btnCloseLeftPanel39Toan.Size = new System.Drawing.Size(76, 37);
+            this.btnCloseLeftPanel39Toan.TabIndex = 1;
+            this.btnCloseLeftPanel39Toan.Text = "<<";
+            this.btnCloseLeftPanel39Toan.UseVisualStyleBackColor = true;
+            this.btnCloseLeftPanel39Toan.Click += new System.EventHandler(this.closeLeftPanel_Click);
             // 
-            // closeLeftPanel
+            // lblFolderName39Toan
             // 
-            this.closeLeftPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeLeftPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeLeftPanel.Location = new System.Drawing.Point(214, 4);
-            this.closeLeftPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.closeLeftPanel.Name = "closeLeftPanel";
-            this.closeLeftPanel.Size = new System.Drawing.Size(36, 30);
-            this.closeLeftPanel.TabIndex = 1;
-            this.closeLeftPanel.Text = "<<";
-            this.closeLeftPanel.UseVisualStyleBackColor = true;
-            this.closeLeftPanel.Click += new System.EventHandler(this.closeLeftPanel_Click);
+            this.lblFolderName39Toan.Location = new System.Drawing.Point(4, 0);
+            this.lblFolderName39Toan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFolderName39Toan.Name = "lblFolderName39Toan";
+            this.lblFolderName39Toan.Size = new System.Drawing.Size(161, 42);
+            this.lblFolderName39Toan.TabIndex = 2;
+            this.lblFolderName39Toan.Text = "Folder";
             // 
-            // FolderName
+            // btnOpenLeftPanel39Toan
             // 
-            this.FolderName.AutoSize = true;
-            this.FolderName.Location = new System.Drawing.Point(3, 0);
-            this.FolderName.Name = "FolderName";
-            this.FolderName.Size = new System.Drawing.Size(36, 13);
-            this.FolderName.TabIndex = 2;
-            this.FolderName.Text = "Folder";
+            this.btnOpenLeftPanel39Toan.Location = new System.Drawing.Point(0, 20);
+            this.btnOpenLeftPanel39Toan.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOpenLeftPanel39Toan.Name = "btnOpenLeftPanel39Toan";
+            this.btnOpenLeftPanel39Toan.Size = new System.Drawing.Size(52, 43);
+            this.btnOpenLeftPanel39Toan.TabIndex = 2;
+            this.btnOpenLeftPanel39Toan.Text = ">>";
+            this.btnOpenLeftPanel39Toan.UseVisualStyleBackColor = true;
+            this.btnOpenLeftPanel39Toan.Visible = false;
+            this.btnOpenLeftPanel39Toan.Click += new System.EventHandler(this.OpenLeftPanel_Click);
             // 
-            // Note
+            // btnOpenFolderDialog39Toan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnOpenFolderDialog39Toan.Location = new System.Drawing.Point(172, 3);
+            this.btnOpenFolderDialog39Toan.Name = "btnOpenFolderDialog39Toan";
+            this.btnOpenFolderDialog39Toan.Size = new System.Drawing.Size(36, 41);
+            this.btnOpenFolderDialog39Toan.TabIndex = 3;
+            this.btnOpenFolderDialog39Toan.Text = "button1";
+            this.btnOpenFolderDialog39Toan.UseVisualStyleBackColor = true;
+            this.btnOpenFolderDialog39Toan.Click += new System.EventHandler(this.btnOpenFolderDialog39Toan_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(214, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 41);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // rtxtTextContent39Toan
+            // 
+            this.rtxtTextContent39Toan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtxtTextContent39Toan.Location = new System.Drawing.Point(3, 3);
+            this.rtxtTextContent39Toan.Name = "rtxtTextContent39Toan";
+            this.rtxtTextContent39Toan.Size = new System.Drawing.Size(688, 681);
+            this.rtxtTextContent39Toan.TabIndex = 3;
+            this.rtxtTextContent39Toan.Text = "";
+            // 
+            // fMainMenu39Toan
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.mainMenu);
+            this.ClientSize = new System.Drawing.Size(1045, 690);
+            this.Controls.Add(this.splcntMainMenu39Toan);
             this.IsMdiContainer = true;
-            this.Name = "Note";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "fMainMenu39Toan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Note";
+            this.Text = "NoteTaking";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.mainMenu.Panel1.ResumeLayout(false);
-            this.mainMenu.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mainMenu)).EndInit();
-            this.mainMenu.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.splcntMainMenu39Toan.Panel1.ResumeLayout(false);
+            this.splcntMainMenu39Toan.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splcntMainMenu39Toan)).EndInit();
+            this.splcntMainMenu39Toan.ResumeLayout(false);
+            this.tblpnlLayout39Toan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer mainMenu;
-        private System.Windows.Forms.Button closeLeftPanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Label FolderName;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button OpenLeftPanel;
+        private System.Windows.Forms.SplitContainer splcntMainMenu39Toan;
+        private System.Windows.Forms.Button btnCloseLeftPanel39Toan;
+        private System.Windows.Forms.TableLayoutPanel tblpnlLayout39Toan;
+        private System.Windows.Forms.TreeView trvwFolderLocation39Toan;
+        private System.Windows.Forms.Label lblFolderName39Toan;
+        private System.Windows.Forms.FolderBrowserDialog fldbrsdlgOpenFolder39Toan;
+        private System.Windows.Forms.Button btnOpenLeftPanel39Toan;
+        private System.Windows.Forms.Button btnOpenFolderDialog39Toan;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox rtxtTextContent39Toan;
     }
 }
 
