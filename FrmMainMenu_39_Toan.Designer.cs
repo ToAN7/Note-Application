@@ -116,9 +116,10 @@
             this.lblFolderName_39_Toan.Location = new System.Drawing.Point(4, 0);
             this.lblFolderName_39_Toan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFolderName_39_Toan.Name = "lblFolderName_39_Toan";
-            this.lblFolderName_39_Toan.Size = new System.Drawing.Size(161, 42);
+            this.lblFolderName_39_Toan.Size = new System.Drawing.Size(161, 47);
             this.lblFolderName_39_Toan.TabIndex = 2;
             this.lblFolderName_39_Toan.Text = "Folder";
+            this.lblFolderName_39_Toan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnOpenFolderDialog_39_Toan
             // 
