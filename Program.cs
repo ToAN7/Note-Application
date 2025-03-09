@@ -16,7 +16,7 @@ namespace NoteApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMainMenu39Toan());
+            Application.Run(new FrmLogin_39_Toan());
         }
     }
 }
