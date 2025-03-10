@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 public class RoundButton: Button
 {
@@ -15,6 +16,8 @@ public class RoundButton: Button
     private Color borderColor = Color.Black;
 
     // Properties
+    [Category("Custom Appearance")]
+    [Description("Change Border Size")]
     public int BorderSize
     {
         get { return borderSize; }
@@ -24,22 +27,26 @@ public class RoundButton: Button
         }
     }
 
+    [Category("Custom Appearance")]
+    [Description("Change the radius of the border")]
     public int BorderRadius
     {
         get { return borderRadius; }
-        set { 
-            if (value >= 0)
+        set {
+            if (value >= 0 && value < this.Height)
                 borderRadius = value;
         }
     }
 
+    [Category("Custom Appearance")]
+    [Description("Change Border Color")]
     public Color BorderColor
     {
         get { return borderColor; }
         set { borderColor = value; }
     }
-    // Constructor
 
+    // Constructor
     public RoundButton()
     {
         this.FlatStyle = FlatStyle.Flat;
@@ -58,6 +65,7 @@ public class RoundButton: Button
 
         // rect position is defined by the top left corner of the rectangle which is X and Y
         // 180 is the starting of the top left corner
+        // So we draw an arc with width and height of radius, starting from 180 to 270
         path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
 
         // top right corner
@@ -76,26 +84,41 @@ public class RoundButton: Button
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e);
+        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
         Rectangle rectangleSurface = new Rectangle(0, 0, this.Width, this.Height);
-        Rectangle rectangleBorder = new Rectangle(this.borderSize, this.borderSize, this.Width - this.borderSize, this.Height - this.borderSize);
+        Rectangle rectangleBorder = new Rectangle(1, 1, this.Width - 1, this.Height - 1);
 
         if (this.borderRadius > 2)
         {
+            // using can be use in this way so that the resources are disposed of after the block is executed
+            // its helpful in case of memory management
             using (GraphicsPath pathSurface = CreateFigurePath(rectangleSurface, this.borderRadius))
             using (GraphicsPath pathBorder = CreateFigurePath(rectangleBorder, this.borderRadius - 1))
-            using (Pen penSurface = new Pen(this.Parent.BackColor, this.borderSize))
+            using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
             using (Pen penBorder = new Pen(this.borderColor, this.borderSize))
             {
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                penBorder.Alignment = PenAlignment.Inset;
+                this.Region = new Region(pathSurface);
                 e.Graphics.DrawPath(penSurface, pathSurface);
-                e.Graphics.DrawPath(penBorder, pathBorder);
+                if (borderSize >= 1)
+                {
+                    e.Graphics.DrawPath(penBorder, pathBorder);
+                }
             }
         }
         else
         {
-            e.Graphics.DrawEllipse(new Pen(this.borderColor, this.borderSize), rectangleBorder);
-            e.Graphics.FillEllipse(new SolidBrush(this.Parent.BackColor), rectangleSurface);
+            this.Region = new Region(rectangleSurface);
+
+            if (borderSize >= 1)
+            {
+                using (Pen penBorder = new Pen(this.borderColor, this.borderSize))
+                {
+                    penBorder.Alignment = PenAlignment.Inset;
+                    e.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - borderSize, this.Height - borderSize);
+                }
+            }
         }
     }
 }

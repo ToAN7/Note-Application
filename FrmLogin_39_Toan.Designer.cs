@@ -37,6 +37,8 @@
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fldFolderPath_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.roundButton1 = new RoundButton();
+            this.grpRecentFol_39_Toan.SuspendLayout();
             this.pnlGrab_39_Toan.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +70,7 @@
             // 
             // grpRecentFol_39_Toan
             // 
+            this.grpRecentFol_39_Toan.Controls.Add(this.roundButton1);
             this.grpRecentFol_39_Toan.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRecentFol_39_Toan.Location = new System.Drawing.Point(0, 301);
             this.grpRecentFol_39_Toan.Name = "grpRecentFol_39_Toan";
@@ -128,6 +131,22 @@
             this.panel1.Size = new System.Drawing.Size(780, 32);
             this.panel1.TabIndex = 7;
             // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.Red;
+            this.roundButton1.BorderColor = System.Drawing.Color.Lime;
+            this.roundButton1.BorderRadius = 20;
+            this.roundButton1.BorderSize = 2;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.Location = new System.Drawing.Point(126, 36);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(539, 223);
+            this.roundButton1.TabIndex = 8;
+            this.roundButton1.Text = "roundButton1";
+            this.roundButton1.UseVisualStyleBackColor = false;
+            // 
             // FrmLogin_39_Toan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,6 +163,7 @@
             this.Name = "FrmLogin_39_Toan";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.grpRecentFol_39_Toan.ResumeLayout(false);
             this.pnlGrab_39_Toan.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -162,5 +182,6 @@
         private System.Windows.Forms.TextBox txtFolderPath_39_Toan;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FolderBrowserDialog fldFolderPath_39_Toan;
+        private RoundButton roundButton1;
     }
 }
