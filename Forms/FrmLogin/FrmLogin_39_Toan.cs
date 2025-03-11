@@ -60,7 +60,6 @@ namespace NoteApp
                 mainMenu.ShowDialog();
                 this.Close();
             }
-
         }
     }
 }

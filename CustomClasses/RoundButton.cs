@@ -22,8 +22,8 @@ public class RoundButton: Button
     {
         get { return borderSize; }
         set {
-            if (value >= 0)
-                borderSize = value; 
+            borderSize = value;
+            this.Invalidate();
         }
     }
 
@@ -33,8 +33,8 @@ public class RoundButton: Button
     {
         get { return borderRadius; }
         set {
-            if (value >= 0 && value < this.Height)
-                borderRadius = value;
+            borderRadius = value;
+            this.Invalidate();
         }
     }
 
@@ -43,7 +43,10 @@ public class RoundButton: Button
     public Color BorderColor
     {
         get { return borderColor; }
-        set { borderColor = value; }
+        set { 
+            borderColor = value;
+            this.Invalidate();
+        }
     }
 
     // Constructor
@@ -51,9 +54,14 @@ public class RoundButton: Button
     {
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
-        this.Size = new Size(2*borderRadius + 50, 2*borderRadius);
+        this.Size = new Size(150, 40);
         this.BackColor = Color.LightGray;
         this.ForeColor = Color.White;
+        this.Resize += (sender, e) =>
+        {
+            if (borderRadius > this.Height)
+                borderRadius = this.Height;
+        };
     }
 
     // Methods
@@ -63,20 +71,22 @@ public class RoundButton: Button
         GraphicsPath path = new GraphicsPath();
         path.StartFigure();
 
+        float curveSize = radius * 2F;
+
         // rect position is defined by the top left corner of the rectangle which is X and Y
         // 180 is the starting of the top left corner
         // So we draw an arc with width and height of radius, starting from 180 to 270
-        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+        path.AddArc(rect.X, rect.Y, curveSize, curveSize, 180, 90);
 
         // top right corner
-        path.AddArc(rect.Width - radius, rect.Y, radius, radius, 270, 90);
+        path.AddArc(rect.Width - curveSize, rect.Y, curveSize, curveSize, 270, 90);
 
         // bottom right corner
-        path.AddArc(rect.Width - radius, rect.Height - radius, radius, radius, 0, 90);
+        path.AddArc(rect.Width - curveSize, rect.Height - curveSize, curveSize, curveSize, 0, 90);
 
         // bottom left corner
-        path.AddArc(rect.X, rect.Height - radius, radius, radius, 90, 90);
-
+        path.AddArc(rect.X, rect.Height - curveSize, curveSize, curveSize, 90, 90);
+        
         path.CloseFigure();
         return path;
     }
@@ -84,23 +94,23 @@ public class RoundButton: Button
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e);
-        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-        Rectangle rectangleSurface = new Rectangle(0, 0, this.Width, this.Height);
-        Rectangle rectangleBorder = new Rectangle(1, 1, this.Width - 1, this.Height - 1);
+        Rectangle rectangleSurface = this.ClientRectangle;
+        Rectangle rectangleBorder = Rectangle.Inflate(rectangleSurface, - this.borderSize / 2, - this.borderSize / 2);
 
         if (this.borderRadius > 2)
         {
             // using can be use in this way so that the resources are disposed of after the block is executed
             // its helpful in case of memory management
             using (GraphicsPath pathSurface = CreateFigurePath(rectangleSurface, this.borderRadius))
-            using (GraphicsPath pathBorder = CreateFigurePath(rectangleBorder, this.borderRadius - 1))
-            using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
+            using (GraphicsPath pathBorder = CreateFigurePath(rectangleBorder, this.borderRadius - this.borderSize))
+            using (Pen penSurface = new Pen(this.Parent.BackColor, this.borderSize))
             using (Pen penBorder = new Pen(this.borderColor, this.borderSize))
             {
-                penBorder.Alignment = PenAlignment.Inset;
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 this.Region = new Region(pathSurface);
                 e.Graphics.DrawPath(penSurface, pathSurface);
+
                 if (borderSize >= 1)
                 {
                     e.Graphics.DrawPath(penBorder, pathBorder);
@@ -109,16 +119,28 @@ public class RoundButton: Button
         }
         else
         {
+            e.Graphics.SmoothingMode = SmoothingMode.None;
             this.Region = new Region(rectangleSurface);
 
             if (borderSize >= 1)
             {
                 using (Pen penBorder = new Pen(this.borderColor, this.borderSize))
                 {
+
                     penBorder.Alignment = PenAlignment.Inset;
-                    e.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - borderSize, this.Height - borderSize);
+                    e.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - 1, this.Height - 1);
                 }
             }
         }
+    }
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+    }
+
+    private void Container_BackColorChanged(object sender, EventArgs e)
+    {
+        this.Invalidate();
     }
 }
