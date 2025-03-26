@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NoteApp.Forms.FrmText;
+using NoteApp.Forms.FrmContent;
 
 namespace NoteApp
 {
@@ -158,7 +158,7 @@ namespace NoteApp
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            Form fLoadForm_39_Toan = new FrmText_39_Toan();
+            Form fLoadForm_39_Toan = new FrmContent_39_Toan();
             fLoadForm_39_Toan.TopLevel = false;
             fLoadForm_39_Toan.AutoScroll = true;
             fLoadForm_39_Toan.Show();

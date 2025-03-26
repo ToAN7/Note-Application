@@ -1,6 +1,6 @@
-﻿namespace NoteApp.Forms.FrmText
+﻿namespace NoteApp.Forms.FrmContent
 {
-    partial class FrmText_39_Toan
+    partial class FrmContent_39_Toan
     {
         /// <summary>
         /// Required designer variable.

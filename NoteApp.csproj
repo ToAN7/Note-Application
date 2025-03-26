@@ -74,10 +74,10 @@
     <Compile Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.Designer.cs">
       <DependentUpon>FrmMainMenu_39_Toan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmText\FrmContent_39_Toan.cs">
+    <Compile Include="Forms\FrmContent\FrmContent_39_Toan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmText\FrmContent_39_Toan.Designer.cs">
+    <Compile Include="Forms\FrmContent\FrmContent_39_Toan.Designer.cs">
       <DependentUpon>FrmContent_39_Toan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -87,7 +87,7 @@
     </Compile>
     <EmbeddedResource Include="Forms\FrmLogin\FrmLogin_39_Toan.resx" />
     <EmbeddedResource Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.resx" />
-    <EmbeddedResource Include="Forms\FrmText\FrmContent_39_Toan.resx">
+    <EmbeddedResource Include="Forms\FrmContent\FrmContent_39_Toan.resx">
       <DependentUpon>FrmContent_39_Toan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
