@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NoteApp.Forms.FrmText;
 
 namespace NoteApp
 {
@@ -20,7 +21,7 @@ namespace NoteApp
         }
         private void FrmMainMenu_39_Toan_Load(object sender, EventArgs e)
         {
-            txtTextContent_39_Toan.ReadOnly = true;
+            //txtTextContent_39_Toan.ReadOnly = true;
         }
 
         // Event handlers
@@ -29,7 +30,7 @@ namespace NoteApp
         {
             btnOpenLeftPanel_39_Toan.Visible = true;
             this.splMainMenu_39_Toan.Panel1Collapsed = !this.splMainMenu_39_Toan.Panel1Collapsed;
-            txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
+            //txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
         }
         private void btnOpenLeftPanel_39_Toan_Click(object sender, EventArgs e)
         {
@@ -50,8 +51,8 @@ namespace NoteApp
         {
             if (e.Node.Text.Contains(".txt"))
             {
-                txtTextContent_39_Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
-                txtTextContent_39_Toan.ReadOnly = false;
+                //txtTextContent_39_Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
+                //txtTextContent_39_Toan.ReadOnly = false;
             }
         }
 
@@ -65,7 +66,7 @@ namespace NoteApp
             else
             {
                 this.trFolderLocation_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel1.Width - 6, this.splMainMenu_39_Toan.Panel1.Height - 6 - this.tblLayout_39_Toan.Height);
-                this.txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
+                //this.txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
                 this.tblLayout_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel1.Width - 6, this.tblLayout_39_Toan.Height);
             }
         }
@@ -77,9 +78,9 @@ namespace NoteApp
             timer.Interval = 3000;
             timer.Tick += (object sdr, EventArgs ent) =>
             {
-                if (!txtTextContent_39_Toan.ReadOnly)
+                //if (!txtTextContent_39_Toan.ReadOnly)
                 {
-                    System.IO.File.WriteAllText(trFolderLocation_39_Toan.SelectedNode.FullPath, txtTextContent_39_Toan.Text);
+                    //System.IO.File.WriteAllText(trFolderLocation_39_Toan.SelectedNode.FullPath, txtTextContent_39_Toan.Text);
                 }
             };
             timer.Start();
@@ -153,6 +154,16 @@ namespace NoteApp
             {
                 MessageBox.Show($"Error loading file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            Form fLoadForm_39_Toan = new FrmText_39_Toan();
+            fLoadForm_39_Toan.TopLevel = false;
+            fLoadForm_39_Toan.AutoScroll = true;
+            fLoadForm_39_Toan.Show();
+            fLoadForm_39_Toan.Dock = DockStyle.Fill;
+            tabPage1.Controls.Add(fLoadForm_39_Toan);
         }
     }
 }
