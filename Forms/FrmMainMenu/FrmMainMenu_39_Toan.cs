@@ -43,7 +43,7 @@ namespace NoteApp
         {
             fldOpenFolder_39_Toan.ShowDialog();
             loadFileIntoTreeView(fldOpenFolder_39_Toan.SelectedPath);
-            lblFolderName_39_Toan.Text = fldOpenFolder_39_Toan.SelectedPath.Trim().Substring(fldOpenFolder_39_Toan.SelectedPath.LastIndexOf('\\'));
+            //lblFolderName_39_Toan.Text = fldOpenFolder_39_Toan.SelectedPath.Trim().Substring(fldOpenFolder_39_Toan.SelectedPath.LastIndexOf('\\'));
         }
 
         // Load the selected file content into the text box
@@ -164,6 +164,8 @@ namespace NoteApp
             fLoadForm_39_Toan.Show();
             fLoadForm_39_Toan.Dock = DockStyle.Fill;
             tabPage1.Controls.Add(fLoadForm_39_Toan);
+
+            //tblLayout_39_Toan.Controls.
         }
     }
 }

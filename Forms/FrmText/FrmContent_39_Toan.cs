@@ -17,15 +17,5 @@ namespace NoteApp.Forms.FrmText
         {
             InitializeComponent();
         }
-
-        public void LoadFileContent(string filePath)
-        {
-            txtText_39_Toan.Text = System.IO.File.ReadAllText(filePath);
-        }
-
-        public void SaveFileContent(string filePath)
-        {
-            System.IO.File.WriteAllText(filePath, txtText_39_Toan.Text);
-        }
     }
 }

@@ -62,9 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomClasses\RoundButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Forms\FrmLogin\FrmLogin_39_Toan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,18 +74,21 @@
     <Compile Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.Designer.cs">
       <DependentUpon>FrmMainMenu_39_Toan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmText\FrmText_39_Toan.cs">
+    <Compile Include="Forms\FrmText\FrmContent_39_Toan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmText\FrmText_39_Toan.Designer.cs">
-      <DependentUpon>FrmText_39_Toan.cs</DependentUpon>
+    <Compile Include="Forms\FrmText\FrmContent_39_Toan.Designer.cs">
+      <DependentUpon>FrmContent_39_Toan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomControls\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Forms\FrmLogin\FrmLogin_39_Toan.resx" />
     <EmbeddedResource Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.resx" />
-    <EmbeddedResource Include="Forms\FrmText\FrmText_39_Toan.resx">
-      <DependentUpon>FrmText_39_Toan.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmText\FrmContent_39_Toan.resx">
+      <DependentUpon>FrmContent_39_Toan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
