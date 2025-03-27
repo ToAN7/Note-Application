@@ -64,7 +64,16 @@ namespace NoteApp.Forms.FrmContent
                 getLocation.Add(e.Location);
                 size++;
 
-                this.CreateGraphics().DrawLine(pDoodle, getLocation[size-2], getLocation[size-1]);
+                this.CreateGraphics().DrawLine(pDoodle, getLocation[size - 2], getLocation[size - 1]);
+            }
+        }
+
+        private void FrmDoodle_39_Toan_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            for (int i = 0; i < getLocation.Count - 1; i++)
+            {
+                e.Graphics.DrawLine(pDoodle, getLocation[i], getLocation[i + 1]);
             }
         }
 
@@ -113,11 +122,6 @@ namespace NoteApp.Forms.FrmContent
                 this.CreateGraphics().Dispose();
                 this.CreateGraphics().DrawLine(pDoodle, doodle[i], doodle[i + 1]);
             }
-        }
-
-        private void FrmDoodle_39_Toan_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
