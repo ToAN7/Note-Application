@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FrmContent\FrmDoodle_39_Toan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmContent\FrmDoodle_39_Toan.Designer.cs">
+      <DependentUpon>FrmDoodle_39_Toan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmLogin\FrmLogin_39_Toan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="CustomControls\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Forms\FrmContent\FrmDoodle_39_Toan.resx">
+      <DependentUpon>FrmDoodle_39_Toan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin\FrmLogin_39_Toan.resx" />
     <EmbeddedResource Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.resx" />
     <EmbeddedResource Include="Forms\FrmContent\FrmContent_39_Toan.resx">

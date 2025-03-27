@@ -14,6 +14,7 @@ namespace NoteApp
     public partial class FrmMainMenu_39_Toan : Form
     {
         Timer timer;
+        List<PointF> doodle;
         // Initialize the form
         public FrmMainMenu_39_Toan()
         {
@@ -158,14 +159,63 @@ namespace NoteApp
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            Form fLoadForm_39_Toan = new FrmContent_39_Toan();
+            Console.WriteLine("Create new Frm");
+            Form fLoadForm_39_Toan = new FrmDoodle_39_Toan();
             fLoadForm_39_Toan.TopLevel = false;
             fLoadForm_39_Toan.AutoScroll = true;
             fLoadForm_39_Toan.Show();
             fLoadForm_39_Toan.Dock = DockStyle.Fill;
+            tabPage1.Controls.Clear();
             tabPage1.Controls.Add(fLoadForm_39_Toan);
 
             //tblLayout_39_Toan.Controls.
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+            PictureBox pbContent_39_Toan = new PictureBox();
+            pbContent_39_Toan.Dock = DockStyle.Fill;
+            pbContent_39_Toan.Image = Image.FromFile(@"D:\Meme\KHAPepeSleep.PNG");
+            pbContent_39_Toan.SizeMode = PictureBoxSizeMode.Zoom;
+            pbContent_39_Toan.Show();
+            tabPage2.Controls.Add(pbContent_39_Toan);
+        }
+
+        private void tabPage1_RePaint(object sender, PaintEventArgs e)
+        {
+            if (doodle != null) {
+                Console.WriteLine("Doodle is not null");
+                Pen pen = new Pen(Color.Red, 3);
+                Console.WriteLine(doodle.Count.ToString());
+                (tabPage1.Controls[0] as FrmDoodle_39_Toan).RePaintDoodle_39_Toan(ref doodle);
+            }
+            else
+                Console.WriteLine("Doodle is null");
+        }
+
+        private void tbMainMenu_39_Toan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //tabPage1_RePaint(sender, new PaintEventArgs(tabPage1.CreateGraphics(), tabPage1.ClientRectangle));
+        }
+
+        private void tbMainMenu_39_Toan_Selected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPageIndex == 0)
+            {
+                Console.WriteLine("Selected tab 0");
+                Console.WriteLine(e.TabPage.Controls.Count.ToString());
+                tabPage1_RePaint(sender, new PaintEventArgs((tabPage1.Controls[0] as FrmDoodle_39_Toan).CreateGraphics(), tabPage1.ClientRectangle));
+            }
+        }
+
+        private void tabPage1_Leave(object sender, EventArgs e)
+        {
+            doodle = (tabPage1.Controls[0] as FrmDoodle_39_Toan).GetLocation;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"D:\", "file.json");
         }
     }
 }

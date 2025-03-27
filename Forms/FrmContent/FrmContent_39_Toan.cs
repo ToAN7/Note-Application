@@ -64,10 +64,10 @@ namespace NoteApp.Forms.FrmContent
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(pbContent_39_Toan);
                         break;
                     case ContentTypes.Doodle:
-                        Panel pnlContent_39_Toan = new Panel();
-                        pnlContent_39_Toan.Dock = DockStyle.Fill;
-                        pnlContent_39_Toan.Tag = FilePath;
-                        tbContent_39_Toan.TabPages[FileName].Controls.Add(pnlContent_39_Toan);
+                        Form frmContent_39_Toan = new FrmDoodle_39_Toan();
+                        frmContent_39_Toan.Dock = DockStyle.Fill;
+                        frmContent_39_Toan.Tag = FilePath;
+                        tbContent_39_Toan.TabPages[FileName].Controls.Add(frmContent_39_Toan);
                         break;
                 }
             }
@@ -86,9 +86,9 @@ namespace NoteApp.Forms.FrmContent
                 {
                     return (tpContent_39_Toan.Controls[0] as PictureBox).ImageLocation;
                 }
-                else if (tpContent_39_Toan.Controls[0] is Panel)
+                else if (tpContent_39_Toan.Controls[0] is FrmDoodle_39_Toan)
                 {
-                    return (tpContent_39_Toan.Controls[0] as Panel).Tag.ToString();
+                    return (tpContent_39_Toan.Controls[0] as FrmDoodle_39_Toan).Tag.ToString();
                 }
             }
             return "";
@@ -111,5 +111,6 @@ namespace NoteApp.Forms.FrmContent
             }
             return ContentTypes.None;
         }
+
     }
 }
