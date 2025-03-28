@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,37 +15,63 @@ namespace NoteApp.Forms.FrmContent
 {
     public partial class FrmDoodle_39_Toan : Form
     {
-        int size = 0;
-        List<PointF> getLocation = new List<PointF>();
-        Pen pDoodle = new Pen(Color.Red, 3);
+        private bool isSave = false;
+        private List<PointF> getLocation = new List<PointF>();
+
+        private int lineSize = 0;
+        private List<String> lines = new List<String>();
+
+        private Pen pDoodle = new Pen(Color.Red, 3);
+
+        private String filePath = "";
+        private String fileName = "DefaultDoodle" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
+
         public FrmDoodle_39_Toan()
         {
             InitializeComponent();
-            File.Create(@"D:\tmp.json").Close();
         }
 
         // Properties
         public List<PointF> GetLocation
         {
             get { return getLocation; }
+            set { 
+                getLocation = value;
+                // Raise the Paint event
+                this.Invalidate();
+            }
         }
-        public Pen GetPen
+
+        public String FilePath
         {
-            get { return pDoodle; }
+            get { return filePath; }
+            set { filePath = value; }
+        }
+
+        public String FileName
+        {
+            get { return fileName; }
+            set { fileName = value; }
         }
 
         [Category("Custom Pen Properties")]
         public Color PenColor
         {
             get { return pDoodle.Color; }
-            set { pDoodle.Color = value; }
+            set {
+                pDoodle.Color = value;
+                this.Invalidate();
+            }
         }
 
         [Category("Custom Pen Properties")]
         public float PenWidth
         {
             get { return pDoodle.Width; }
-            set { pDoodle.Width = value; }
+            set {
+                pDoodle.Width = value;
+                this.Invalidate();
+            }
         }
 
         // Methods
@@ -54,74 +82,126 @@ namespace NoteApp.Forms.FrmContent
                 getLocation.Clear();
             }
             getLocation.Add(e.Location);
-            size++;
         }
 
+
+        // Make fast smooth line drawing
         private void FrmDoodle_39_Toan_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 getLocation.Add(e.Location);
-                size++;
+                int size = getLocation.Count;
 
                 this.CreateGraphics().DrawLine(pDoodle, getLocation[size - 2], getLocation[size - 1]);
             }
         }
 
+        private void FrmDoodle_39_Toan_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (lineSize < lines.Count)
+            {
+                lines.RemoveRange(lineSize, lines.Count - lineSize);
+            }
+            lines.Add(ConvertGetLocationToString_39_Toan());
+            lineSize++;
+        }
+
+        // I noticed that the Paint event raised when the form is loaded or leaved
+        // Before, I do not use Paint event, instead I use RePaintDoodle method
+        // This does not work, because the Paint event is not raised
         private void FrmDoodle_39_Toan_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            for (int i = 0; i < getLocation.Count - 1; i++)
+            List<PointF> readLocations = new List<PointF>();
+            if (lines.Count == 0)
             {
-                e.Graphics.DrawLine(pDoodle, getLocation[i], getLocation[i + 1]);
+                return;
+            }
+            for (int i = 0; i < lineSize; i++)
+            {
+                String[] points = lines[i].Split('|');
+                String[] point = points[0].Split(',');
+                readLocations.Add(new PointF(float.Parse(point[0]), float.Parse(point[1])));
+                for (int j = 1; j < points.Length; j++)
+                {
+                    point = points[j].Split(',');
+                    readLocations.Add(new PointF(float.Parse(point[0]), float.Parse(point[1])));
+                    e.Graphics.DrawLine(pDoodle, readLocations[j-1], readLocations[j]);
+                }
+                readLocations.Clear();
             }
         }
 
-        private void FrmDoodle_39_Toan_MouseUp(object sender, MouseEventArgs e)
+        private String ConvertGetLocationToString_39_Toan()
         {
-            String content = "{\r\n" + $"\"doodle{size}\":";
-            content += "[";
+            String Content = "";
             for (int i = 0; i < getLocation.Count; i++)
             {
-                content += "[" + getLocation[i].X.ToString() + ", " + getLocation[i].Y.ToString() + "]";
-                if (i != getLocation.Count - 1)
+                Content += getLocation[i].X.ToString() + ",";
+                Content += getLocation[i].Y.ToString();
+                if (i < getLocation.Count - 1)
                 {
-                    content += ",";
+                    Content += "|";
                 }
             }
-            content += "]";
-            if (!File.Exists(@"D:\tmp.json"))
+            Content += "\r\n";
+            return Content;
+        }
+
+        // Save the doodle as a custom type file
+        public void SaveDoodleAsFile_39_Toan(String filePath, String fileName)
+        {
+            if (filePath == "")
             {
-                File.Create(@"D:\tmp.json").Close();
+                MessageBox.Show("Please select a folder to save the doodle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            File.AppendAllText(@"D:\tmp.json", content);
-            size = 0;
-        }
-        public void SaveDoodleAsFile_39_Toan(String path, String fileName)
-        {
 
-            String Content = "{\r\n\"doodle\":";
-          
-            Content += "}";
-            File.Create(path + "\\" + fileName).Close();
-            File.WriteAllText(path + "\\" + fileName, Content);
-        }
+            this.filePath = filePath;
+            if (fileName != "") {
+                this.fileName = fileName;
+            }
 
-        private void FrmDoodle_39_Toan_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            String content = "}";
-            File.Create(@"D:\tmp.json").Close();
-            File.AppendAllText(@"D:\tmp.json", content);
-        }
-
-        public void RePaintDoodle_39_Toan(ref List<PointF> doodle)
-        {
-            //this.Refresh();
-            for (int i = 0; i < doodle.Count - 1; i++)
+            File.Create(filePath + "\\" + this.fileName + ".doodle").Close();
+            if (File.Exists(filePath + "\\" + this.fileName + ".doodle"))
             {
-                this.CreateGraphics().Dispose();
-                this.CreateGraphics().DrawLine(pDoodle, doodle[i], doodle[i + 1]);
+                isSave = true;
+                StreamWriter sw = new StreamWriter(filePath + "\\" + this.fileName + ".doodle");
+                for (int i = 0; i < lineSize; i++)
+                {
+                    sw.Write(lines[i]);
+                }
+                sw.Close();
             }
+        }
+
+        private void btnUndo_39_Toan_Click(object sender, EventArgs e)
+        {
+            lineSize--;
+            if (lineSize < 0)
+            {
+                lineSize = 0;
+            }
+            this.Invalidate();
+        }
+
+        private void btnRedo_39_Toan_Click(object sender, EventArgs e)
+        {
+            lineSize++;
+            if (lineSize > lines.Count)
+            {
+                lineSize = lines.Count;
+            }
+            this.Invalidate();
+        }
+
+        private void FrmDoodle_39_Toan_Load(object sender, EventArgs e)
+        {
+            btnRedo_39_Toan.Width = btnRedo_39_Toan.Height;
+            btnUndo_39_Toan.Width = btnUndo_39_Toan.Height;
+            btnRedo_39_Toan.BorderRadius = btnRedo_39_Toan.Height / 2;
+            btnUndo_39_Toan.BorderRadius = btnUndo_39_Toan.Height / 2;
         }
     }
 }

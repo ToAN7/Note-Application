@@ -41,6 +41,7 @@
             this.btnOpenLeftPanel_39_Toan = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.fldOpenFolder_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splMainMenu_39_Toan)).BeginInit();
             this.splMainMenu_39_Toan.Panel1.SuspendLayout();
             this.splMainMenu_39_Toan.Panel2.SuspendLayout();
@@ -173,7 +174,6 @@
             this.tbMainMenu_39_Toan.SelectedIndex = 0;
             this.tbMainMenu_39_Toan.Size = new System.Drawing.Size(695, 690);
             this.tbMainMenu_39_Toan.TabIndex = 4;
-            this.tbMainMenu_39_Toan.SelectedIndexChanged += new System.EventHandler(this.tbMainMenu_39_Toan_SelectedIndexChanged);
             this.tbMainMenu_39_Toan.Selected += new System.Windows.Forms.TabControlEventHandler(this.tbMainMenu_39_Toan_Selected);
             // 
             // tabPage1
@@ -188,7 +188,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            this.tabPage1.Leave += new System.EventHandler(this.tabPage1_Leave);
             // 
             // btnOpenLeftPanel_39_Toan
             // 
@@ -251,6 +250,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

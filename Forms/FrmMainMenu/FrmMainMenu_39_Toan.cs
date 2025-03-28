@@ -14,7 +14,6 @@ namespace NoteApp
     public partial class FrmMainMenu_39_Toan : Form
     {
         Timer timer;
-        List<PointF> doodle;
         // Initialize the form
         public FrmMainMenu_39_Toan()
         {
@@ -181,41 +180,18 @@ namespace NoteApp
             tabPage2.Controls.Add(pbContent_39_Toan);
         }
 
-        private void tabPage1_RePaint(object sender, PaintEventArgs e)
-        {
-            if (doodle != null) {
-                Console.WriteLine("Doodle is not null");
-                Pen pen = new Pen(Color.Red, 3);
-                Console.WriteLine(doodle.Count.ToString());
-                (tabPage1.Controls[0] as FrmDoodle_39_Toan).RePaintDoodle_39_Toan(ref doodle);
-            }
-            else
-                Console.WriteLine("Doodle is null");
-        }
-
-        private void tbMainMenu_39_Toan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //tabPage1_RePaint(sender, new PaintEventArgs(tabPage1.CreateGraphics(), tabPage1.ClientRectangle));
-        }
-
         private void tbMainMenu_39_Toan_Selected(object sender, TabControlEventArgs e)
         {
             if (e.TabPageIndex == 0)
             {
                 Console.WriteLine("Selected tab 0");
                 Console.WriteLine(e.TabPage.Controls.Count.ToString());
-                tabPage1_RePaint(sender, new PaintEventArgs((tabPage1.Controls[0] as FrmDoodle_39_Toan).CreateGraphics(), tabPage1.ClientRectangle));
             }
-        }
-
-        private void tabPage1_Leave(object sender, EventArgs e)
-        {
-            doodle = (tabPage1.Controls[0] as FrmDoodle_39_Toan).GetLocation;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"D:\", "file.json");
+            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"D:\", "");
         }
     }
 }
