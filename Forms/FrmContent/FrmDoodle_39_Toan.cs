@@ -21,7 +21,7 @@ namespace NoteApp.Forms.FrmContent
         private int lineSize = 0;
         private List<String> lines = new List<String>();
 
-        private Pen pDoodle = new Pen(Color.Red, 3);
+        private Pen pDoodle = new Pen(Color.FromArgb(255,0,0),3);
 
         private String filePath = "";
         private String fileName = "DefaultDoodle" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
@@ -145,7 +145,6 @@ namespace NoteApp.Forms.FrmContent
                     Content += "|";
                 }
             }
-            Content += "\r\n";
             return Content;
         }
 
@@ -170,7 +169,7 @@ namespace NoteApp.Forms.FrmContent
                 StreamWriter sw = new StreamWriter(filePath + "\\" + this.fileName + ".doodle");
                 for (int i = 0; i < lineSize; i++)
                 {
-                    sw.Write(lines[i]);
+                    sw.WriteLine(lines[i]);
                 }
                 sw.Close();
             }
@@ -202,6 +201,9 @@ namespace NoteApp.Forms.FrmContent
             btnUndo_39_Toan.Width = btnUndo_39_Toan.Height;
             btnRedo_39_Toan.BorderRadius = btnRedo_39_Toan.Height / 2;
             btnUndo_39_Toan.BorderRadius = btnUndo_39_Toan.Height / 2;
+            btnClear_39_Toan.BorderRadius = btnClear_39_Toan.Height / 2;
+            btnClear_39_Toan.Location = new Point(btnUndo_39_Toan.Location.X + btnUndo_39_Toan.Width + 10, 0);
+            lblChooseColor_39_Toan.Location = new Point(btnClear_39_Toan.Location.X + btnClear_39_Toan.Width + 10, 0);
         }
 
         public void LoadDoodle_39_Toan(String filePath)
@@ -221,6 +223,22 @@ namespace NoteApp.Forms.FrmContent
             lineSize = lines.Count;
             sr.Close();
             this.Invalidate();
+        }
+
+        private void btnClear_39_Toan_Click(object sender, EventArgs e)
+        {
+            lineSize = 0;
+            this.Invalidate();
+        }
+
+        private void lblChooseColor_39_Toan_Click(object sender, EventArgs e)
+        {
+            DialogResult isSelect = clrChooseColor_39_Toan.ShowDialog();
+            if (isSelect == DialogResult.OK)
+            {
+                PenColor = clrChooseColor_39_Toan.Color;
+                lblChooseColor_39_Toan.BackColor = clrChooseColor_39_Toan.Color;
+            }
         }
     }
 }

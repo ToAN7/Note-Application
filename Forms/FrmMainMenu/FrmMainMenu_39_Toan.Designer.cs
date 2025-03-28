@@ -35,7 +35,7 @@
             this.btnCloseLeftPanel_39_Toan = new System.Windows.Forms.Button();
             this.btnOpenFolderDialog_39_Toan = new System.Windows.Forms.Button();
             this.chkAutoSave_39_Toan = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave_39_Toan = new System.Windows.Forms.Button();
             this.tbMainMenu_39_Toan = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnOpenLeftPanel_39_Toan = new System.Windows.Forms.Button();
@@ -104,7 +104,7 @@
             this.tblLayout_39_Toan.Controls.Add(this.btnCloseLeftPanel_39_Toan, 3, 0);
             this.tblLayout_39_Toan.Controls.Add(this.btnOpenFolderDialog_39_Toan, 1, 0);
             this.tblLayout_39_Toan.Controls.Add(this.chkAutoSave_39_Toan, 2, 0);
-            this.tblLayout_39_Toan.Controls.Add(this.button1, 0, 0);
+            this.tblLayout_39_Toan.Controls.Add(this.btnSave_39_Toan, 0, 0);
             this.tblLayout_39_Toan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tblLayout_39_Toan.Location = new System.Drawing.Point(0, 643);
             this.tblLayout_39_Toan.Margin = new System.Windows.Forms.Padding(4);
@@ -135,7 +135,7 @@
             this.btnOpenFolderDialog_39_Toan.Name = "btnOpenFolderDialog_39_Toan";
             this.btnOpenFolderDialog_39_Toan.Size = new System.Drawing.Size(80, 43);
             this.btnOpenFolderDialog_39_Toan.TabIndex = 3;
-            this.btnOpenFolderDialog_39_Toan.Text = "button1";
+            this.btnOpenFolderDialog_39_Toan.Text = "Open Folder";
             this.btnOpenFolderDialog_39_Toan.UseVisualStyleBackColor = true;
             this.btnOpenFolderDialog_39_Toan.Click += new System.EventHandler(this.btnOpenFolderDialog_39_Toan_Click);
             // 
@@ -149,19 +149,21 @@
             this.chkAutoSave_39_Toan.Name = "chkAutoSave_39_Toan";
             this.chkAutoSave_39_Toan.Size = new System.Drawing.Size(80, 43);
             this.chkAutoSave_39_Toan.TabIndex = 4;
+            this.chkAutoSave_39_Toan.Text = "Auto Save";
+            this.chkAutoSave_39_Toan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkAutoSave_39_Toan.UseVisualStyleBackColor = true;
             this.chkAutoSave_39_Toan.CheckedChanged += new System.EventHandler(this.chkAutoSave_39_Toan_CheckedChanged);
             // 
-            // button1
+            // btnSave_39_Toan
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 41);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave_39_Toan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave_39_Toan.Location = new System.Drawing.Point(3, 3);
+            this.btnSave_39_Toan.Name = "btnSave_39_Toan";
+            this.btnSave_39_Toan.Size = new System.Drawing.Size(80, 41);
+            this.btnSave_39_Toan.TabIndex = 5;
+            this.btnSave_39_Toan.Text = "Save";
+            this.btnSave_39_Toan.UseVisualStyleBackColor = true;
+            this.btnSave_39_Toan.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbMainMenu_39_Toan
             // 
@@ -249,7 +251,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave_39_Toan;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

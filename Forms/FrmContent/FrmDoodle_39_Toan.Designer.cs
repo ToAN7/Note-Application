@@ -28,11 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblChooseColor_39_Toan = new System.Windows.Forms.Label();
+            this.btnClear_39_Toan = new RoundButton();
             this.btnUndo_39_Toan = new RoundButton();
             this.btnRedo_39_Toan = new RoundButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.clrChooseColor_39_Toan = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblChooseColor_39_Toan);
+            this.panel1.Controls.Add(this.btnClear_39_Toan);
+            this.panel1.Controls.Add(this.btnUndo_39_Toan);
+            this.panel1.Controls.Add(this.btnRedo_39_Toan);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 519);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(666, 100);
+            this.panel1.TabIndex = 2;
+            // 
+            // lblChooseColor_39_Toan
+            // 
+            this.lblChooseColor_39_Toan.BackColor = System.Drawing.Color.Red;
+            this.lblChooseColor_39_Toan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblChooseColor_39_Toan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblChooseColor_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblChooseColor_39_Toan.Location = new System.Drawing.Point(312, 0);
+            this.lblChooseColor_39_Toan.Name = "lblChooseColor_39_Toan";
+            this.lblChooseColor_39_Toan.Size = new System.Drawing.Size(100, 100);
+            this.lblChooseColor_39_Toan.TabIndex = 3;
+            this.lblChooseColor_39_Toan.Click += new System.EventHandler(this.lblChooseColor_39_Toan_Click);
+            // 
+            // btnClear_39_Toan
+            // 
+            this.btnClear_39_Toan.BackColor = System.Drawing.Color.DimGray;
+            this.btnClear_39_Toan.BorderColor = System.Drawing.Color.Black;
+            this.btnClear_39_Toan.BorderRadius = 50;
+            this.btnClear_39_Toan.BorderSize = 0;
+            this.btnClear_39_Toan.FlatAppearance.BorderSize = 0;
+            this.btnClear_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear_39_Toan.ForeColor = System.Drawing.Color.White;
+            this.btnClear_39_Toan.Location = new System.Drawing.Point(106, 0);
+            this.btnClear_39_Toan.Name = "btnClear_39_Toan";
+            this.btnClear_39_Toan.Size = new System.Drawing.Size(200, 100);
+            this.btnClear_39_Toan.TabIndex = 2;
+            this.btnClear_39_Toan.Text = "Clear";
+            this.btnClear_39_Toan.UseVisualStyleBackColor = false;
+            this.btnClear_39_Toan.Click += new System.EventHandler(this.btnClear_39_Toan_Click);
             // 
             // btnUndo_39_Toan
             // 
@@ -71,20 +115,16 @@
             this.btnRedo_39_Toan.UseVisualStyleBackColor = false;
             this.btnRedo_39_Toan.Click += new System.EventHandler(this.btnRedo_39_Toan_Click);
             // 
-            // panel1
+            // clrChooseColor_39_Toan
             // 
-            this.panel1.Controls.Add(this.btnUndo_39_Toan);
-            this.panel1.Controls.Add(this.btnRedo_39_Toan);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 519);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(666, 100);
-            this.panel1.TabIndex = 2;
+            this.clrChooseColor_39_Toan.Color = System.Drawing.Color.Red;
+            this.clrChooseColor_39_Toan.FullOpen = true;
             // 
             // FrmDoodle_39_Toan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(666, 619);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
@@ -105,5 +145,8 @@
         private RoundButton btnRedo_39_Toan;
         private RoundButton btnUndo_39_Toan;
         private System.Windows.Forms.Panel panel1;
+        private RoundButton btnClear_39_Toan;
+        private System.Windows.Forms.Label lblChooseColor_39_Toan;
+        private System.Windows.Forms.ColorDialog clrChooseColor_39_Toan;
     }
 }
