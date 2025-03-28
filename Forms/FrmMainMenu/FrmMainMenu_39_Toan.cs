@@ -49,10 +49,12 @@ namespace NoteApp
         // Load the selected file content into the text box
         private void trFolderLocation_39_Toan_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Text.Contains(".txt"))
+            if (e.Node.Text.Contains(".doodle"))
             {
                 //txtTextContent_39_Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
                 //txtTextContent_39_Toan.ReadOnly = false;
+                tabPage1_Click(sender, e);
+                (tabPage1.Controls[0] as FrmDoodle_39_Toan).LoadDoodle_39_Toan(e.Node.FullPath);
             }
         }
 
@@ -120,7 +122,7 @@ namespace NoteApp
             try
             {
                 // Get all the text files in the selected folder and add them as child nodes to the root node
-                String[] txtFiles = System.IO.Directory.GetFiles(path, "*.txt");
+                String[] txtFiles = System.IO.Directory.GetFiles(path, "*.doodle");
                 String[] subFolders = System.IO.Directory.GetDirectories(path);
 
                 foreach (String filePath in txtFiles)
@@ -137,7 +139,7 @@ namespace NoteApp
                 {
                     TreeNode node = new TreeNode(folderPath);
                     node.Text = folderPath.Substring(folderPath.LastIndexOf('\\') + 1);
-                    String[] subTxtFiles = System.IO.Directory.GetFiles(folderPath, "*.txt");
+                    String[] subTxtFiles = System.IO.Directory.GetFiles(folderPath, "*.doodle");
                     foreach (String filePath in subTxtFiles)
                     {
                         TreeNode subNode = new TreeNode(filePath);
@@ -191,7 +193,8 @@ namespace NoteApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"D:\", "");
+            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"C:\Users\ctoan\Desktop", "");
+            loadFileIntoTreeView(fldOpenFolder_39_Toan.SelectedPath);
         }
     }
 }

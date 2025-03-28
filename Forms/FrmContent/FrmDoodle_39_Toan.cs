@@ -203,5 +203,24 @@ namespace NoteApp.Forms.FrmContent
             btnRedo_39_Toan.BorderRadius = btnRedo_39_Toan.Height / 2;
             btnUndo_39_Toan.BorderRadius = btnUndo_39_Toan.Height / 2;
         }
+
+        public void LoadDoodle_39_Toan(String filePath)
+        {
+            if (filePath == "")
+            {
+                MessageBox.Show("Please select a file to load the doodle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            this.filePath = filePath;
+            StreamReader sr = new StreamReader(filePath);
+            String line = "";
+            while ((line = sr.ReadLine()) != null)
+            {
+                lines.Add(line);
+            }
+            lineSize = lines.Count;
+            sr.Close();
+            this.Invalidate();
+        }
     }
 }
