@@ -53,7 +53,7 @@ namespace NoteApp.Forms.FrmContent
                 // ~~~~~~~~~~~~~~~~~~~~~~           LastIndexOf('\\')
                 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
                 String FileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
-                tbContent_39_Toan.TabPages.Add(FileName);
+                tbContent_39_Toan.TabPages.Add(FileName, FileName);
 
                 switch (contentType)
                 {
@@ -68,18 +68,27 @@ namespace NoteApp.Forms.FrmContent
                         pbContent_39_Toan.Dock = DockStyle.Fill;
                         pbContent_39_Toan.Image = Image.FromFile(FilePath);
                         pbContent_39_Toan.SizeMode = PictureBoxSizeMode.Zoom;
+                        pbContent_39_Toan.Show();
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(pbContent_39_Toan);
                         break;
                     case ContentTypes.Doodle:
                         Form frmContent_39_Toan = new FrmDoodle_39_Toan();
                         frmContent_39_Toan.Dock = DockStyle.Fill;
+                        frmContent_39_Toan.TopLevel = false;
                         frmContent_39_Toan.Tag = FilePath;
+                        frmContent_39_Toan.Show();
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(frmContent_39_Toan);
                         break;
                 }
 
                 tbContent_39_Toan.SelectedTab = tbContent_39_Toan.TabPages[FileName];
                 tbContent_39_Toan.TabPages[FileName].Controls[0].Focus();
+            }
+            else
+            {
+                String fileName = DateTime.Now.ToString("dd_MM_yyyy") + ".md";
+                File.Create(FilePath + fileName).Close();
+                LoadContent_39_Toan(FilePath + fileName, contentType);
             }
         }
 

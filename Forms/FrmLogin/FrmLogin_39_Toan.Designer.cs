@@ -30,8 +30,8 @@
         {
             this.lblTitle_39_Toan = new System.Windows.Forms.Label();
             this.grpRecentFol_39_Toan = new System.Windows.Forms.GroupBox();
-            this.btnClosed_39_Toan = new RoundButton();
             this.pnlGrab_39_Toan = new System.Windows.Forms.Panel();
+            this.btnClosed_39_Toan = new RoundButton();
             this.btnFolderPath_39_Toan = new System.Windows.Forms.Button();
             this.lblFolderPath_39_Toan = new System.Windows.Forms.Label();
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
@@ -63,6 +63,20 @@
             this.grpRecentFol_39_Toan.TabStop = false;
             this.grpRecentFol_39_Toan.Text = "Recent Folders";
             // 
+            // pnlGrab_39_Toan
+            // 
+            this.pnlGrab_39_Toan.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
+            this.pnlGrab_39_Toan.Controls.Add(this.btnClosed_39_Toan);
+            this.pnlGrab_39_Toan.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlGrab_39_Toan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlGrab_39_Toan.Location = new System.Drawing.Point(0, 0);
+            this.pnlGrab_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlGrab_39_Toan.Name = "pnlGrab_39_Toan";
+            this.pnlGrab_39_Toan.Size = new System.Drawing.Size(781, 52);
+            this.pnlGrab_39_Toan.TabIndex = 3;
+            this.pnlGrab_39_Toan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseDown);
+            this.pnlGrab_39_Toan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseUp);
+            // 
             // btnClosed_39_Toan
             // 
             this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
@@ -74,26 +88,13 @@
             this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.btnClosed_39_Toan.ForeColor = System.Drawing.Color.DimGray;
             this.btnClosed_39_Toan.Location = new System.Drawing.Point(641, 0);
-            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4);
             this.btnClosed_39_Toan.Name = "btnClosed_39_Toan";
             this.btnClosed_39_Toan.Size = new System.Drawing.Size(136, 49);
             this.btnClosed_39_Toan.TabIndex = 0;
             this.btnClosed_39_Toan.Text = "X";
             this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
             this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
-            // 
-            // pnlGrab_39_Toan
-            // 
-            this.pnlGrab_39_Toan.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
-            this.pnlGrab_39_Toan.Controls.Add(this.btnClosed_39_Toan);
-            this.pnlGrab_39_Toan.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlGrab_39_Toan.Location = new System.Drawing.Point(0, 0);
-            this.pnlGrab_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlGrab_39_Toan.Name = "pnlGrab_39_Toan";
-            this.pnlGrab_39_Toan.Size = new System.Drawing.Size(780, 52);
-            this.pnlGrab_39_Toan.TabIndex = 3;
-            this.pnlGrab_39_Toan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseDown);
-            this.pnlGrab_39_Toan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseUp);
             // 
             // btnFolderPath_39_Toan
             // 
@@ -154,6 +155,7 @@
             this.Name = "FrmLogin_39_Toan";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmLogin_39_Toan_Load);
             this.pnlGrab_39_Toan.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

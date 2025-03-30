@@ -171,6 +171,7 @@
             this.pnlDefault_39_Toan.Name = "pnlDefault_39_Toan";
             this.pnlDefault_39_Toan.Size = new System.Drawing.Size(695, 690);
             this.pnlDefault_39_Toan.TabIndex = 0;
+            this.pnlDefault_39_Toan.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDefault_39_Toan_Paint);
             // 
             // btnCreateNewDoodle_39_Toan
             // 
