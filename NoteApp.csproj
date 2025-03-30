@@ -94,8 +94,12 @@
     <EmbeddedResource Include="Forms\FrmContent\FrmDoodle_39_Toan.resx">
       <DependentUpon>FrmDoodle_39_Toan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmLogin\FrmLogin_39_Toan.resx" />
-    <EmbeddedResource Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.resx" />
+    <EmbeddedResource Include="Forms\FrmLogin\FrmLogin_39_Toan.resx">
+      <DependentUpon>FrmLogin_39_Toan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMainMenu\FrmMainMenu_39_Toan.resx">
+      <DependentUpon>FrmMainMenu_39_Toan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmContent\FrmContent_39_Toan.resx">
       <DependentUpon>FrmContent_39_Toan.cs</DependentUpon>
     </EmbeddedResource>

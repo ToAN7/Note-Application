@@ -15,7 +15,6 @@ namespace NoteApp.Forms.FrmContent
 {
     public partial class FrmDoodle_39_Toan : Form
     {
-        private bool isSave = false;
         private List<PointF> getLocation = new List<PointF>();
 
         private int lineSize = 0;
@@ -165,7 +164,6 @@ namespace NoteApp.Forms.FrmContent
             File.Create(filePath + "\\" + this.fileName + ".doodle").Close();
             if (File.Exists(filePath + "\\" + this.fileName + ".doodle"))
             {
-                isSave = true;
                 StreamWriter sw = new StreamWriter(filePath + "\\" + this.fileName + ".doodle");
                 for (int i = 0; i < lineSize; i++)
                 {

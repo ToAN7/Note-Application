@@ -13,29 +13,33 @@ namespace NoteApp
 {
     public partial class FrmMainMenu_39_Toan : Form
     {
+        // Fields
         Timer timer;
-        // Initialize the form
+
+        // Constructor
         public FrmMainMenu_39_Toan()
         {
             InitializeComponent();
         }
         private void FrmMainMenu_39_Toan_Load(object sender, EventArgs e)
         {
-            //txtTextContent_39_Toan.ReadOnly = true;
+            int widthRightPanel = (pnlDefault_39_Toan.Width - btnCreateNewDoodle_39_Toan.Width) / 2;
+            int heightRightPanel = (pnlDefault_39_Toan.Height - btnCreateNewDoodle_39_Toan.Height) / 2;
+            btnCreateNewFile_39_Toan.Location = new Point(widthRightPanel, heightRightPanel - 40);
+            btnCreateNewDoodle_39_Toan.Location = new Point(widthRightPanel, btnCreateNewFile_39_Toan.Location.Y + btnCreateNewFile_39_Toan.Height + 20);
         }
 
-        // Event handlers
-        // Toggle the visibility of the left panel
+        // Methods
         private void btnCloseLeftPanel_39_Toan_Click(object sender, EventArgs e)
         {
-            btnOpenLeftPanel_39_Toan.Visible = true;
+            //btnOpenLeftPanel_39_Toan.Visible = true;
             this.splMainMenu_39_Toan.Panel1Collapsed = !this.splMainMenu_39_Toan.Panel1Collapsed;
             //txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
         }
         private void btnOpenLeftPanel_39_Toan_Click(object sender, EventArgs e)
         {
             this.splMainMenu_39_Toan.Panel1Collapsed = !this.splMainMenu_39_Toan.Panel1Collapsed;
-            btnOpenLeftPanel_39_Toan.Visible = false;
+            //btnOpenLeftPanel_39_Toan.Visible = false;
         }
 
         // Open folder dialog to select a folder
@@ -49,13 +53,13 @@ namespace NoteApp
         // Load the selected file content into the text box
         private void trFolderLocation_39_Toan_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Text.Contains(".doodle"))
-            {
-                //txtTextContent_39_Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
-                //txtTextContent_39_Toan.ReadOnly = false;
-                tabPage1_Click(sender, e);
-                (tabPage1.Controls[0] as FrmDoodle_39_Toan).LoadDoodle_39_Toan(e.Node.FullPath);
-            }
+            //if (e.Node.Text.Contains(".doodle"))
+            //{
+            //    //txtTextContent_39_Toan.Text = System.IO.File.ReadAllText(e.Node.FullPath);
+            //    //txtTextContent_39_Toan.ReadOnly = false;
+            //    tabPage1_Click(sender, e);
+            //    (tabPage1.Controls[0] as FrmDoodle_39_Toan).LoadDoodle_39_Toan(e.Node.FullPath);
+            //}
         }
 
         private void splMainMenu_39_Toan_SplitterMoved(object sender, SplitterEventArgs e)
@@ -67,9 +71,8 @@ namespace NoteApp
             }
             else
             {
-                this.trFolderLocation_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel1.Width - 6, this.splMainMenu_39_Toan.Panel1.Height - 6 - this.tblLayout_39_Toan.Height);
-                //this.txtTextContent_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel2.Width - 6, this.splMainMenu_39_Toan.Panel2.Height - 6);
-                this.tblLayout_39_Toan.Size = new Size(this.splMainMenu_39_Toan.Panel1.Width - 6, this.tblLayout_39_Toan.Height);
+                this.trFolderLocation_39_Toan.Size = new Size(pnlDefault_39_Toan.Width - 6, pnlDefault_39_Toan.Height - 6 - this.tblLayout_39_Toan.Height);
+                this.tblLayout_39_Toan.Size = new Size(pnlDefault_39_Toan.Width - 6, this.tblLayout_39_Toan.Height);
             }
         }
 
@@ -99,14 +102,14 @@ namespace NoteApp
             }
         }
 
-        private void txtTextContent_39_Toan_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (chkAutoSave_39_Toan.Checked)
-            {
-                timer.Stop();
-                timer.Start();
-            }
-        }
+        //private void txtTextContent_39_Toan_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (chkAutoSave_39_Toan.Checked)
+        //    {
+        //        timer.Stop();
+        //        timer.Start();
+        //    }
+        //}
         // Custom controls
 
         // Load the selected path into the tree view
@@ -121,13 +124,18 @@ namespace NoteApp
 
             try
             {
-                // Get all the text files in the selected folder and add them as child nodes to the root node
-                String[] txtFiles = System.IO.Directory.GetFiles(path, "*.doodle");
+                // Get all supported files in the selected folder
+                String[] Files = System.IO.Directory.GetFiles(path, "*.*");
                 String[] subFolders = System.IO.Directory.GetDirectories(path);
 
-                foreach (String filePath in txtFiles)
+                foreach (String filePath in Files)
                 {
                     // Create a new tree node for each file and add it as a child node to the root node
+                    if (FrmContent_39_Toan.GetContentType_39_Toan(filePath) == ContentTypes.None)
+                    {
+                        continue;
+                    }
+
                     TreeNode node = new TreeNode(filePath);
 
                     // Display only the file name in the tree view
@@ -139,9 +147,14 @@ namespace NoteApp
                 {
                     TreeNode node = new TreeNode(folderPath);
                     node.Text = folderPath.Substring(folderPath.LastIndexOf('\\') + 1);
-                    String[] subTxtFiles = System.IO.Directory.GetFiles(folderPath, "*.doodle");
-                    foreach (String filePath in subTxtFiles)
+                    String[] subFiles = System.IO.Directory.GetFiles(folderPath, "*.*");
+                    foreach (String filePath in subFiles)
                     {
+                        if (FrmContent_39_Toan.GetContentType_39_Toan(filePath) == ContentTypes.None)
+                        {
+                            continue;
+                        }
+
                         TreeNode subNode = new TreeNode(filePath);
                         subNode.Text = filePath.Substring(filePath.LastIndexOf('\\') + 1);
                         node.Nodes.Add(subNode);
@@ -158,43 +171,59 @@ namespace NoteApp
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void btnCreateNewFile_39_Toan_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Create new Frm");
-            Form fLoadForm_39_Toan = new FrmDoodle_39_Toan();
+            pnlDefault_39_Toan.Controls.Clear();
+            Form fLoadForm_39_Toan = new FrmContent_39_Toan();
             fLoadForm_39_Toan.TopLevel = false;
+            fLoadForm_39_Toan.Dock = DockStyle.Fill;
             fLoadForm_39_Toan.AutoScroll = true;
             fLoadForm_39_Toan.Show();
-            fLoadForm_39_Toan.Dock = DockStyle.Fill;
-            tabPage1.Controls.Clear();
-            tabPage1.Controls.Add(fLoadForm_39_Toan);
-
-            //tblLayout_39_Toan.Controls.
+            pnlDefault_39_Toan.Controls.Add(fLoadForm_39_Toan);
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void btnCreateNewDoodle_39_Toan_Click(object sender, EventArgs e)
         {
-            PictureBox pbContent_39_Toan = new PictureBox();
-            pbContent_39_Toan.Dock = DockStyle.Fill;
-            pbContent_39_Toan.Image = Image.FromFile(@"D:\Meme\KHAPepeSleep.PNG");
-            pbContent_39_Toan.SizeMode = PictureBoxSizeMode.Zoom;
-            pbContent_39_Toan.Show();
-            tabPage2.Controls.Add(pbContent_39_Toan);
+            pnlDefault_39_Toan.Controls.Clear();
         }
 
-        private void tbMainMenu_39_Toan_Selected(object sender, TabControlEventArgs e)
-        {
-            if (e.TabPageIndex == 0)
-            {
-                Console.WriteLine("Selected tab 0");
-                Console.WriteLine(e.TabPage.Controls.Count.ToString());
-            }
-        }
+        //private void tabPage1_Click(object sender, EventArgs e)
+        //{
+        //    Console.WriteLine("Create new Frm");
+        //    Form fLoadForm_39_Toan = new FrmDoodle_39_Toan();
+        //    fLoadForm_39_Toan.TopLevel = false;
+        //    fLoadForm_39_Toan.AutoScroll = true;
+        //    fLoadForm_39_Toan.Show();
+        //    fLoadForm_39_Toan.Dock = DockStyle.Fill;
+        //    tabPage1.Controls.Clear();
+        //    tabPage1.Controls.Add(fLoadForm_39_Toan);
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"C:\Users\ctoan\Desktop", "");
-            loadFileIntoTreeView(fldOpenFolder_39_Toan.SelectedPath);
-        }
+        //    //tblLayout_39_Toan.Controls.
+        //}
+
+        //private void tabPage2_Click(object sender, EventArgs e)
+        //{
+        //    PictureBox pbContent_39_Toan = new PictureBox();
+        //    pbContent_39_Toan.Dock = DockStyle.Fill;
+        //    pbContent_39_Toan.Image = Image.FromFile(@"D:\Meme\KHAPepeSleep.PNG");
+        //    pbContent_39_Toan.SizeMode = PictureBoxSizeMode.Zoom;
+        //    pbContent_39_Toan.Show();
+        //    tabPage2.Controls.Add(pbContent_39_Toan);
+        //}
+
+        //private void tbMainMenu_39_Toan_Selected(object sender, TabControlEventArgs e)
+        //{
+        //    if (e.TabPageIndex == 0)
+        //    {
+        //        Console.WriteLine("Selected tab 0");
+        //        Console.WriteLine(e.TabPage.Controls.Count.ToString());
+        //    }
+        //}
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    (tabPage1.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(@"C:\Users\ctoan\Desktop", "");
+        //    loadFileIntoTreeView(fldOpenFolder_39_Toan.SelectedPath);
+        //}
     }
 }

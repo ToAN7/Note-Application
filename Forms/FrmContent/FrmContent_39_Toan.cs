@@ -26,6 +26,12 @@ namespace NoteApp.Forms.FrmContent
             InitializeComponent();
         }
 
+        public FrmContent_39_Toan(String FilePath, ContentTypes contentType)
+        {
+            InitializeComponent();
+            LoadContent_39_Toan(FilePath, contentType);
+        }
+
         // METHODS
         public void LoadContent_39_Toan(String FilePath, ContentTypes contentType)
         {
@@ -48,6 +54,7 @@ namespace NoteApp.Forms.FrmContent
                 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
                 String FileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
                 tbContent_39_Toan.TabPages.Add(FileName);
+
                 switch (contentType)
                 {
                     case ContentTypes.Text:
@@ -59,7 +66,7 @@ namespace NoteApp.Forms.FrmContent
                     case ContentTypes.Image:
                         PictureBox pbContent_39_Toan = new PictureBox();
                         pbContent_39_Toan.Dock = DockStyle.Fill;
-                        pbContent_39_Toan.ImageLocation = FilePath;
+                        pbContent_39_Toan.Image = Image.FromFile(FilePath);
                         pbContent_39_Toan.SizeMode = PictureBoxSizeMode.Zoom;
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(pbContent_39_Toan);
                         break;
@@ -70,6 +77,9 @@ namespace NoteApp.Forms.FrmContent
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(frmContent_39_Toan);
                         break;
                 }
+
+                tbContent_39_Toan.SelectedTab = tbContent_39_Toan.TabPages[FileName];
+                tbContent_39_Toan.TabPages[FileName].Controls[0].Focus();
             }
         }
 
