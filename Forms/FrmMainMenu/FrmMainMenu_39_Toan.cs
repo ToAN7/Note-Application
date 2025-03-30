@@ -59,6 +59,21 @@ namespace NoteApp
 
         private void trFolderLocation_39_Toan_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            ContentTypes getType = FrmContent_39_Toan.GetContentType_39_Toan(e.Node.Text);
+            if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan)
+            {
+                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).LoadContent_39_Toan(e.Node.FullPath, getType);
+            }
+            else
+            {
+                pnlDefault_39_Toan.Controls.Clear();
+                FrmContent_39_Toan frmLoadForm_39_Toan = new FrmContent_39_Toan(e.Node.FullPath, getType);
+                frmLoadForm_39_Toan.TopLevel = false;
+                frmLoadForm_39_Toan.Dock = DockStyle.Fill;
+                frmLoadForm_39_Toan.AutoScroll = true;
+                frmLoadForm_39_Toan.Show();
+                pnlDefault_39_Toan.Controls.Add(frmLoadForm_39_Toan);
+            }
         }
 
         private void splMainMenu_39_Toan_SplitterMoved(object sender, SplitterEventArgs e)

@@ -37,6 +37,14 @@ namespace NoteApp.Forms.FrmContent
         {
             if (File.Exists(FilePath))
             {
+                String FileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
+
+                if (tbContent_39_Toan.TabPages.ContainsKey(FileName))
+                {
+                    tbContent_39_Toan.SelectedTab = tbContent_39_Toan.TabPages[FileName];
+                    return;
+                }
+
                 // In case of user doesn't know the content type
                 if (contentType == ContentTypes.None)
                 {
@@ -52,7 +60,6 @@ namespace NoteApp.Forms.FrmContent
                 // C://Users/.../Desktop/FileName.md
                 // ~~~~~~~~~~~~~~~~~~~~~~           LastIndexOf('\\')
                 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
-                String FileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
                 tbContent_39_Toan.TabPages.Add(FileName, FileName);
 
                 switch (contentType)

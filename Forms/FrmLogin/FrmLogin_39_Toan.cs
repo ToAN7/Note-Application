@@ -25,10 +25,10 @@ namespace NoteApp
 
             if (File.Exists(Application.UserAppDataPath + "\\FolderPath.txt"))
             {
-                String[] lines = File.ReadAllLines(Application.UserAppDataPath + "\\FolderPath.txt");
+                String[] lines = File.ReadAllLines(Application.UserAppDataPath + "\\FolderPath.txt").Distinct().ToArray();
                 foreach (String line in lines)
                 {
-                    grpRecentFol_39_Toan.Controls.Add(new Button()
+                    Button RecentFolders = new Button()
                     {
                         Text = line,
                         AutoSize = true,
@@ -36,7 +36,15 @@ namespace NoteApp
                         Dock = DockStyle.Top,
                         Font = new Font("Arial", 12),
                         Cursor = Cursors.Hand
-                    });
+                    };
+
+                    RecentFolders.Click += (s, ev) =>
+                    {
+                        txtFolderPath_39_Toan.Text = RecentFolders.Text;
+                        btnFolderPath_39_Toan_Click(s,ev);
+
+                    };
+                    grpRecentFol_39_Toan.Controls.Add(RecentFolders);
                 }
             }
         }
@@ -79,14 +87,15 @@ namespace NoteApp
             }
 
             this.Hide();
-            FrmMainMenu_39_Toan mainMenu = new FrmMainMenu_39_Toan();
+            FrmMainMenu_39_Toan mainMenu = new FrmMainMenu_39_Toan(fldFolderPath_39_Toan.SelectedPath);
 
-            mainMenu.loadFileIntoTreeView(fldFolderPath_39_Toan.SelectedPath);
-            if (!File.Exists(Application.UserAppDataPath + "\\FolderPath.txt"))
+            String SaveRecentFolderFile = Application.UserAppDataPath + "\\FolderPath.txt";
+            if (!File.Exists(SaveRecentFolderFile))
             {
-                File.Create(Application.UserAppDataPath + "\\FolderPath.txt").Close();
+                File.Create(SaveRecentFolderFile).Close();
+                MessageBox.Show(SaveRecentFolderFile);
             }
-            File.AppendText(Application.UserAppDataPath + "\\FolderPath.txt").WriteLine(fldFolderPath_39_Toan.SelectedPath);
+            File.AppendAllText(SaveRecentFolderFile, fldFolderPath_39_Toan.SelectedPath + "\n");
 
             // Show the main menu form as a dialog so that the this.Close() method is not called until the main menu form is closed
             mainMenu.ShowDialog();
