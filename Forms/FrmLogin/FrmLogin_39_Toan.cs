@@ -26,12 +26,12 @@ namespace NoteApp
 
             if (File.Exists(Application.UserAppDataPath + "\\FolderPath.txt"))
             {
-                String[] lines = File.ReadAllLines(Application.UserAppDataPath + "\\FolderPath.txt").Distinct().ToArray();
-                foreach (String line in lines)
+                String[] lines_39_Toan = File.ReadAllLines(Application.UserAppDataPath + "\\FolderPath.txt").Distinct().ToArray();
+                foreach (String line_39_Toan in lines_39_Toan)
                 {
-                    Button RecentFolders = new Button()
+                    Button RecentFolders_39_Toan = new Button()
                     {
-                        Text = line,
+                        Text = line_39_Toan,
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Dock = DockStyle.Top,
@@ -39,13 +39,13 @@ namespace NoteApp
                         Cursor = Cursors.Hand
                     };
 
-                    RecentFolders.Click += (s, ev) =>
+                    RecentFolders_39_Toan.Click += (s, ev) =>
                     {
-                        txtFolderPath_39_Toan.Text = RecentFolders.Text;
+                        txtFolderPath_39_Toan.Text = RecentFolders_39_Toan.Text;
                         btnFolderPath_39_Toan_Click(s,ev);
 
                     };
-                    grpRecentFol_39_Toan.Controls.Add(RecentFolders);
+                    grpRecentFol_39_Toan.Controls.Add(RecentFolders_39_Toan);
                 }
             }
         }
@@ -58,11 +58,11 @@ namespace NoteApp
         private void pnlGrab_39_Toan_MouseDown(object sender, MouseEventArgs e)
         {
             this.Opacity = 0.5;
-            int xOffset = Cursor.Position.X - this.Location.X;
-            int yOffset = Cursor.Position.Y - this.Location.Y;
+            int xOffset_39_Toan = Cursor.Position.X - this.Location.X;
+            int yOffset_39_Toan = Cursor.Position.Y - this.Location.Y;
             do
             {
-                this.Location = new Point(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset);
+                this.Location = new Point(Cursor.Position.X - xOffset_39_Toan, Cursor.Position.Y - yOffset_39_Toan);
                 Application.DoEvents();
             } while (MouseButtons == MouseButtons.Left);
         }
@@ -80,26 +80,26 @@ namespace NoteApp
             }
             else 
             { 
-                DialogResult result_39_Toan = fldFolderPath_39_Toan.ShowDialog();
-                if (result_39_Toan == DialogResult.Cancel)
+                DialogResult result_39_Toan_39_Toan = fldFolderPath_39_Toan.ShowDialog();
+                if (result_39_Toan_39_Toan == DialogResult.Cancel)
                 {
                     return;
                 }
             }
 
             this.Hide();
-            FrmMainMenu_39_Toan mainMenu = new FrmMainMenu_39_Toan(fldFolderPath_39_Toan.SelectedPath);
+            FrmMainMenu_39_Toan mainMenu_39_Toan = new FrmMainMenu_39_Toan(fldFolderPath_39_Toan.SelectedPath);
 
-            String SaveRecentFolderFile = Application.UserAppDataPath + "\\FolderPath.txt";
-            if (!File.Exists(SaveRecentFolderFile))
+            String SaveRecentFolderFile_39_Toan = Application.UserAppDataPath + "\\FolderPath.txt";
+            if (!File.Exists(SaveRecentFolderFile_39_Toan))
             {
-                File.Create(SaveRecentFolderFile).Close();
-                MessageBox.Show(SaveRecentFolderFile);
+                File.Create(SaveRecentFolderFile_39_Toan).Close();
+                MessageBox.Show(SaveRecentFolderFile_39_Toan);
             }
-            File.AppendAllText(SaveRecentFolderFile, fldFolderPath_39_Toan.SelectedPath + "\n");
+            File.AppendAllText(SaveRecentFolderFile_39_Toan, fldFolderPath_39_Toan.SelectedPath + "\n");
 
             // Show the main menu form as a dialog so that the this.Close() method is not called until the main menu form is closed
-            mainMenu.ShowDialog();
+            mainMenu_39_Toan.ShowDialog();
             this.Close();
         }
 
