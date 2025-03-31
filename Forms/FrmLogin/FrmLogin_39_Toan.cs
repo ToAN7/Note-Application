@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -100,6 +101,18 @@ namespace NoteApp
             // Show the main menu form as a dialog so that the this.Close() method is not called until the main menu form is closed
             mainMenu.ShowDialog();
             this.Close();
+        }
+
+        private void txtFolderPath_39_Toan_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txtFolderPath_39_Toan.Text))
+            {
+                btnFolderPath_39_Toan.Text = "Open folder";
+            }
+            else
+            {
+                btnFolderPath_39_Toan.Text = "Browse folder";
+            }
         }
     }
 }

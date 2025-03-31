@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,10 +34,23 @@ namespace NoteApp.Forms.FrmContent
         }
 
         // METHODS
+        public void ClearTabs_39_Toan()
+        {
+            tbContent_39_Toan.TabPages.Clear();
+        }
+
+        public void ClearTab_39_Toan(String tabName)
+        {
+            tbContent_39_Toan.TabPages.RemoveByKey(tabName);
+        }
+
         public void LoadContent_39_Toan(String FilePath, ContentTypes contentType)
         {
             if (File.Exists(FilePath))
             {
+                // C://Users/.../Desktop/FileName.md
+                // ~~~~~~~~~~~~~~~~~~~~~~           LastIndexOf('\\')
+                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
                 String FileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
 
                 if (tbContent_39_Toan.TabPages.ContainsKey(FileName))
@@ -57,10 +71,26 @@ namespace NoteApp.Forms.FrmContent
                     }
                 }
 
-                // C://Users/.../Desktop/FileName.md
-                // ~~~~~~~~~~~~~~~~~~~~~~           LastIndexOf('\\')
-                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
                 tbContent_39_Toan.TabPages.Add(FileName, FileName);
+
+                ToolStripButton tsbClose = new ToolStripButton("Close");
+                tsbClose.Click += (sender, e) => { ClearTab_39_Toan(tbContent_39_Toan.SelectedTab.Name); };
+
+                ToolStripButton tsbCloseAll = new ToolStripButton("Close All");
+                tsbCloseAll.Click += (sender, e) => { ClearTabs_39_Toan(); };
+
+                tbContent_39_Toan.TabPages[FileName].ContextMenuStrip = new ContextMenuStrip()
+                {
+                    Items = { tsbClose, tsbCloseAll },
+                    TopLevel = true,
+                };
+                tbContent_39_Toan.TabPages[FileName].MouseClick += (sender, e) =>
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        tbContent_39_Toan.ContextMenuStrip.Show();
+                    }
+                };
 
                 switch (contentType)
                 {
@@ -68,6 +98,7 @@ namespace NoteApp.Forms.FrmContent
                         RichTextBox rtbContent_39_Toan = new RichTextBox();
                         rtbContent_39_Toan.Dock = DockStyle.Fill;
                         rtbContent_39_Toan.Text = File.ReadAllText(FilePath);
+                        rtbContent_39_Toan.Show();
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(rtbContent_39_Toan);
                         break;
                     case ContentTypes.Image:
@@ -79,7 +110,8 @@ namespace NoteApp.Forms.FrmContent
                         tbContent_39_Toan.TabPages[FileName].Controls.Add(pbContent_39_Toan);
                         break;
                     case ContentTypes.Doodle:
-                        Form frmContent_39_Toan = new FrmDoodle_39_Toan();
+                        FrmDoodle_39_Toan frmContent_39_Toan = new FrmDoodle_39_Toan();
+                        frmContent_39_Toan.LoadDoodle_39_Toan(FilePath);
                         frmContent_39_Toan.Dock = DockStyle.Fill;
                         frmContent_39_Toan.TopLevel = false;
                         frmContent_39_Toan.Tag = FilePath;
@@ -93,9 +125,35 @@ namespace NoteApp.Forms.FrmContent
             }
             else
             {
-                String fileName = DateTime.Now.ToString("dd_MM_yyyy") + ".md";
-                File.Create(FilePath + fileName).Close();
-                LoadContent_39_Toan(FilePath + fileName, contentType);
+                String fileName = "";
+                switch (contentType)
+                {
+                    case ContentTypes.Text:
+                        fileName = DateTime.Now.ToString("dd_MM_yyyy") + "t.md";
+                        break;
+                    case ContentTypes.Doodle:
+                        fileName = DateTime.Now.ToString("dd_MM_yyyy") + "d.doodle";
+                        break;
+                };
+                File.Create(FilePath + "\\" + fileName).Close();
+                LoadContent_39_Toan(FilePath + "\\" + fileName, contentType);
+            }
+        }
+
+        public void SaveContent_39_Toan(String Path)
+        {
+            String fileName = "";
+            if (tbContent_39_Toan.SelectedTab.Controls.Count > 0)
+            {
+                if (tbContent_39_Toan.SelectedTab.Controls[0] is RichTextBox)
+                {
+                    fileName = tbContent_39_Toan.SelectedTab.Text + ".md";
+                    File.WriteAllText(Path + "\\" + fileName, (tbContent_39_Toan.SelectedTab.Controls[0] as RichTextBox).Text);
+                }
+                else if (tbContent_39_Toan.SelectedTab.Controls[0] is FrmDoodle_39_Toan)
+                {
+                    (tbContent_39_Toan.SelectedTab.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(Path, tbContent_39_Toan.SelectedTab.Text);
+                }
             }
         }
 
@@ -107,10 +165,6 @@ namespace NoteApp.Forms.FrmContent
                 if (tpContent_39_Toan.Controls[0] is RichTextBox)
                 {
                     return (tpContent_39_Toan.Controls[0] as RichTextBox).Text;
-                }
-                else if (tpContent_39_Toan.Controls[0] is PictureBox)
-                {
-                    return (tpContent_39_Toan.Controls[0] as PictureBox).ImageLocation;
                 }
                 else if (tpContent_39_Toan.Controls[0] is FrmDoodle_39_Toan)
                 {
@@ -138,5 +192,9 @@ namespace NoteApp.Forms.FrmContent
             return ContentTypes.None;
         }
 
+        public bool IsExistTab_39_Toan(String tabName)
+        {
+            return tbContent_39_Toan.TabPages.ContainsKey(tabName);
+        }
     }
 }

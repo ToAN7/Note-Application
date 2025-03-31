@@ -31,12 +31,12 @@
             this.lblTitle_39_Toan = new System.Windows.Forms.Label();
             this.grpRecentFol_39_Toan = new System.Windows.Forms.GroupBox();
             this.pnlGrab_39_Toan = new System.Windows.Forms.Panel();
-            this.btnClosed_39_Toan = new RoundButton();
             this.btnFolderPath_39_Toan = new System.Windows.Forms.Button();
             this.lblFolderPath_39_Toan = new System.Windows.Forms.Label();
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fldFolderPath_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnClosed_39_Toan = new RoundButton();
             this.pnlGrab_39_Toan.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,25 +77,6 @@
             this.pnlGrab_39_Toan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseDown);
             this.pnlGrab_39_Toan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseUp);
             // 
-            // btnClosed_39_Toan
-            // 
-            this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
-            this.btnClosed_39_Toan.BorderColor = System.Drawing.Color.Black;
-            this.btnClosed_39_Toan.BorderRadius = 20;
-            this.btnClosed_39_Toan.BorderSize = 0;
-            this.btnClosed_39_Toan.FlatAppearance.BorderSize = 0;
-            this.btnClosed_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.btnClosed_39_Toan.ForeColor = System.Drawing.Color.DimGray;
-            this.btnClosed_39_Toan.Location = new System.Drawing.Point(641, 0);
-            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClosed_39_Toan.Name = "btnClosed_39_Toan";
-            this.btnClosed_39_Toan.Size = new System.Drawing.Size(136, 49);
-            this.btnClosed_39_Toan.TabIndex = 0;
-            this.btnClosed_39_Toan.Text = "X";
-            this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
-            this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
-            // 
             // btnFolderPath_39_Toan
             // 
             this.btnFolderPath_39_Toan.Font = new System.Drawing.Font("Cooper Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +85,7 @@
             this.btnFolderPath_39_Toan.Name = "btnFolderPath_39_Toan";
             this.btnFolderPath_39_Toan.Size = new System.Drawing.Size(136, 32);
             this.btnFolderPath_39_Toan.TabIndex = 4;
-            this.btnFolderPath_39_Toan.Text = "Choose Folder";
+            this.btnFolderPath_39_Toan.Text = "Browse Folder";
             this.btnFolderPath_39_Toan.UseVisualStyleBackColor = true;
             this.btnFolderPath_39_Toan.Click += new System.EventHandler(this.btnFolderPath_39_Toan_Click);
             // 
@@ -126,6 +107,7 @@
             this.txtFolderPath_39_Toan.Name = "txtFolderPath_39_Toan";
             this.txtFolderPath_39_Toan.Size = new System.Drawing.Size(468, 30);
             this.txtFolderPath_39_Toan.TabIndex = 6;
+            this.txtFolderPath_39_Toan.TextChanged += new System.EventHandler(this.txtFolderPath_39_Toan_TextChanged);
             // 
             // panel1
             // 
@@ -137,6 +119,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(780, 32);
             this.panel1.TabIndex = 7;
+            // 
+            // btnClosed_39_Toan
+            // 
+            this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
+            this.btnClosed_39_Toan.BorderColor = System.Drawing.Color.Black;
+            this.btnClosed_39_Toan.BorderRadius = 20;
+            this.btnClosed_39_Toan.BorderSize = 0;
+            this.btnClosed_39_Toan.FlatAppearance.BorderSize = 0;
+            this.btnClosed_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.btnClosed_39_Toan.ForeColor = System.Drawing.Color.DimGray;
+            this.btnClosed_39_Toan.Location = new System.Drawing.Point(641, 0);
+            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClosed_39_Toan.Name = "btnClosed_39_Toan";
+            this.btnClosed_39_Toan.Size = new System.Drawing.Size(136, 49);
+            this.btnClosed_39_Toan.TabIndex = 0;
+            this.btnClosed_39_Toan.Text = "X";
+            this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
+            this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
             // 
             // FrmLogin_39_Toan
             // 

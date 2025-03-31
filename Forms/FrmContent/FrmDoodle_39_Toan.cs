@@ -148,23 +148,23 @@ namespace NoteApp.Forms.FrmContent
         }
 
         // Save the doodle as a custom type file
-        public void SaveDoodleAsFile_39_Toan(String filePath, String fileName)
+        public void SaveDoodleAsFile_39_Toan(String Path, String fileName)
         {
-            if (filePath == "")
+            if (Path == "")
             {
                 MessageBox.Show("Please select a folder to save the doodle", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            this.filePath = filePath;
+            this.filePath = Path + "\\" + fileName;
             if (fileName != "") {
                 this.fileName = fileName;
             }
 
-            File.Create(filePath + "\\" + this.fileName + ".doodle").Close();
-            if (File.Exists(filePath + "\\" + this.fileName + ".doodle"))
+            File.Create(Path + "\\" + this.fileName + ".doodle").Close();
+            if (File.Exists(Path + "\\" + this.fileName + ".doodle"))
             {
-                StreamWriter sw = new StreamWriter(filePath + "\\" + this.fileName + ".doodle");
+                StreamWriter sw = new StreamWriter(Path + "\\" + this.fileName + ".doodle");
                 for (int i = 0; i < lineSize; i++)
                 {
                     sw.WriteLine(lines[i]);

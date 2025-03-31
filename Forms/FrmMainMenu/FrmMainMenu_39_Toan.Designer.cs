@@ -34,13 +34,12 @@
             this.tblLayout_39_Toan = new System.Windows.Forms.TableLayoutPanel();
             this.btnCloseLeftPanel_39_Toan = new System.Windows.Forms.Button();
             this.btnOpenFolderDialog_39_Toan = new System.Windows.Forms.Button();
-            this.chkAutoSave_39_Toan = new System.Windows.Forms.CheckBox();
             this.btnSave_39_Toan = new System.Windows.Forms.Button();
             this.pnlDefault_39_Toan = new System.Windows.Forms.Panel();
             this.btnCreateNewDoodle_39_Toan = new System.Windows.Forms.Button();
             this.btnCreateNewFile_39_Toan = new System.Windows.Forms.Button();
             this.fldOpenFolder_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnClearTab_39_Toan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splMainMenu_39_Toan)).BeginInit();
             this.splMainMenu_39_Toan.Panel1.SuspendLayout();
             this.splMainMenu_39_Toan.Panel2.SuspendLayout();
@@ -99,10 +98,10 @@
             this.tblLayout_39_Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tblLayout_39_Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tblLayout_39_Toan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblLayout_39_Toan.Controls.Add(this.btnCloseLeftPanel_39_Toan, 3, 0);
-            this.tblLayout_39_Toan.Controls.Add(this.btnOpenFolderDialog_39_Toan, 1, 0);
-            this.tblLayout_39_Toan.Controls.Add(this.chkAutoSave_39_Toan, 2, 0);
             this.tblLayout_39_Toan.Controls.Add(this.btnSave_39_Toan, 0, 0);
+            this.tblLayout_39_Toan.Controls.Add(this.btnClearTab_39_Toan, 1, 0);
+            this.tblLayout_39_Toan.Controls.Add(this.btnCloseLeftPanel_39_Toan, 3, 0);
+            this.tblLayout_39_Toan.Controls.Add(this.btnOpenFolderDialog_39_Toan, 2, 0);
             this.tblLayout_39_Toan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tblLayout_39_Toan.Location = new System.Drawing.Point(0, 643);
             this.tblLayout_39_Toan.Margin = new System.Windows.Forms.Padding(4);
@@ -128,7 +127,7 @@
             // btnOpenFolderDialog_39_Toan
             // 
             this.btnOpenFolderDialog_39_Toan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenFolderDialog_39_Toan.Location = new System.Drawing.Point(89, 2);
+            this.btnOpenFolderDialog_39_Toan.Location = new System.Drawing.Point(175, 2);
             this.btnOpenFolderDialog_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenFolderDialog_39_Toan.Name = "btnOpenFolderDialog_39_Toan";
             this.btnOpenFolderDialog_39_Toan.Size = new System.Drawing.Size(80, 43);
@@ -136,21 +135,6 @@
             this.btnOpenFolderDialog_39_Toan.Text = "Open Folder";
             this.btnOpenFolderDialog_39_Toan.UseVisualStyleBackColor = true;
             this.btnOpenFolderDialog_39_Toan.Click += new System.EventHandler(this.btnOpenFolderDialog_39_Toan_Click);
-            // 
-            // chkAutoSave_39_Toan
-            // 
-            this.chkAutoSave_39_Toan.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkAutoSave_39_Toan.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkAutoSave_39_Toan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkAutoSave_39_Toan.Location = new System.Drawing.Point(175, 2);
-            this.chkAutoSave_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkAutoSave_39_Toan.Name = "chkAutoSave_39_Toan";
-            this.chkAutoSave_39_Toan.Size = new System.Drawing.Size(80, 43);
-            this.chkAutoSave_39_Toan.TabIndex = 4;
-            this.chkAutoSave_39_Toan.Text = "Auto Save";
-            this.chkAutoSave_39_Toan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkAutoSave_39_Toan.UseVisualStyleBackColor = true;
-            this.chkAutoSave_39_Toan.CheckedChanged += new System.EventHandler(this.chkAutoSave_39_Toan_CheckedChanged);
             // 
             // btnSave_39_Toan
             // 
@@ -161,6 +145,7 @@
             this.btnSave_39_Toan.TabIndex = 5;
             this.btnSave_39_Toan.Text = "Save";
             this.btnSave_39_Toan.UseVisualStyleBackColor = true;
+            this.btnSave_39_Toan.Click += new System.EventHandler(this.btnSave_39_Toan_Click);
             // 
             // pnlDefault_39_Toan
             // 
@@ -195,6 +180,17 @@
             this.btnCreateNewFile_39_Toan.UseVisualStyleBackColor = true;
             this.btnCreateNewFile_39_Toan.Click += new System.EventHandler(this.btnCreateNewFile_39_Toan_Click);
             // 
+            // btnClearTab_39_Toan
+            // 
+            this.btnClearTab_39_Toan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClearTab_39_Toan.Location = new System.Drawing.Point(89, 3);
+            this.btnClearTab_39_Toan.Name = "btnClearTab_39_Toan";
+            this.btnClearTab_39_Toan.Size = new System.Drawing.Size(80, 41);
+            this.btnClearTab_39_Toan.TabIndex = 6;
+            this.btnClearTab_39_Toan.Text = "Clear Tab";
+            this.btnClearTab_39_Toan.UseVisualStyleBackColor = true;
+            this.btnClearTab_39_Toan.Click += new System.EventHandler(this.btnClearTab_39_Toan_Click);
+            // 
             // FrmMainMenu_39_Toan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,7 +201,6 @@
             this.Name = "FrmMainMenu_39_Toan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Note Taking Application _39_Toan";
-            this.Load += new System.EventHandler(this.FrmMainMenu_39_Toan_Load);
             this.splMainMenu_39_Toan.Panel1.ResumeLayout(false);
             this.splMainMenu_39_Toan.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splMainMenu_39_Toan)).EndInit();
@@ -225,13 +220,12 @@
         private System.Windows.Forms.TreeView trFolderLocation_39_Toan;
         private System.Windows.Forms.FolderBrowserDialog fldOpenFolder_39_Toan;
         private System.Windows.Forms.Button btnOpenFolderDialog_39_Toan;
-        private System.Windows.Forms.CheckBox chkAutoSave_39_Toan;
         private System.Windows.Forms.Panel pnlLeftPanel_39_Toan;
         private System.Windows.Forms.Button btnSave_39_Toan;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Panel pnlDefault_39_Toan;
         private System.Windows.Forms.Button btnCreateNewDoodle_39_Toan;
         private System.Windows.Forms.Button btnCreateNewFile_39_Toan;
+        private System.Windows.Forms.Button btnClearTab_39_Toan;
     }
 }
 
