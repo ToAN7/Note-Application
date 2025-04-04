@@ -35,7 +35,6 @@ namespace NoteApp
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Dock = DockStyle.Top,
-                        Font = new Font("Arial", 12),
                         Cursor = Cursors.Hand
                     };
 

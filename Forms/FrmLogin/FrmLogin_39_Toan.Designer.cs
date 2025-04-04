@@ -31,19 +31,19 @@
             this.lblTitle_39_Toan = new System.Windows.Forms.Label();
             this.grpRecentFol_39_Toan = new System.Windows.Forms.GroupBox();
             this.pnlGrab_39_Toan = new System.Windows.Forms.Panel();
+            this.btnClosed_39_Toan = new RoundButton();
             this.btnFolderPath_39_Toan = new System.Windows.Forms.Button();
             this.lblFolderPath_39_Toan = new System.Windows.Forms.Label();
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fldFolderPath_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnClosed_39_Toan = new RoundButton();
             this.pnlGrab_39_Toan.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle_39_Toan
             // 
-            this.lblTitle_39_Toan.Font = new System.Drawing.Font("Cooper Black", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle_39_Toan.Font = new System.Drawing.Font("Courier New", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle_39_Toan.Location = new System.Drawing.Point(240, 55);
             this.lblTitle_39_Toan.Name = "lblTitle_39_Toan";
             this.lblTitle_39_Toan.Size = new System.Drawing.Size(308, 100);
@@ -53,7 +53,7 @@
             // 
             // grpRecentFol_39_Toan
             // 
-            this.grpRecentFol_39_Toan.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpRecentFol_39_Toan.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRecentFol_39_Toan.Location = new System.Drawing.Point(0, 302);
             this.grpRecentFol_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpRecentFol_39_Toan.Name = "grpRecentFol_39_Toan";
@@ -77,49 +77,6 @@
             this.pnlGrab_39_Toan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseDown);
             this.pnlGrab_39_Toan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseUp);
             // 
-            // btnFolderPath_39_Toan
-            // 
-            this.btnFolderPath_39_Toan.Font = new System.Drawing.Font("Cooper Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFolderPath_39_Toan.Location = new System.Drawing.Point(641, 0);
-            this.btnFolderPath_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnFolderPath_39_Toan.Name = "btnFolderPath_39_Toan";
-            this.btnFolderPath_39_Toan.Size = new System.Drawing.Size(136, 32);
-            this.btnFolderPath_39_Toan.TabIndex = 4;
-            this.btnFolderPath_39_Toan.Text = "Browse Folder";
-            this.btnFolderPath_39_Toan.UseVisualStyleBackColor = true;
-            this.btnFolderPath_39_Toan.Click += new System.EventHandler(this.btnFolderPath_39_Toan_Click);
-            // 
-            // lblFolderPath_39_Toan
-            // 
-            this.lblFolderPath_39_Toan.Font = new System.Drawing.Font("Cooper Black", 12F);
-            this.lblFolderPath_39_Toan.Location = new System.Drawing.Point(3, 0);
-            this.lblFolderPath_39_Toan.Name = "lblFolderPath_39_Toan";
-            this.lblFolderPath_39_Toan.Size = new System.Drawing.Size(157, 32);
-            this.lblFolderPath_39_Toan.TabIndex = 5;
-            this.lblFolderPath_39_Toan.Text = "Folder path";
-            this.lblFolderPath_39_Toan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtFolderPath_39_Toan
-            // 
-            this.txtFolderPath_39_Toan.Font = new System.Drawing.Font("Cooper Black", 12F);
-            this.txtFolderPath_39_Toan.Location = new System.Drawing.Point(167, 2);
-            this.txtFolderPath_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFolderPath_39_Toan.Name = "txtFolderPath_39_Toan";
-            this.txtFolderPath_39_Toan.Size = new System.Drawing.Size(468, 30);
-            this.txtFolderPath_39_Toan.TabIndex = 6;
-            this.txtFolderPath_39_Toan.TextChanged += new System.EventHandler(this.txtFolderPath_39_Toan_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblFolderPath_39_Toan);
-            this.panel1.Controls.Add(this.btnFolderPath_39_Toan);
-            this.panel1.Controls.Add(this.txtFolderPath_39_Toan);
-            this.panel1.Location = new System.Drawing.Point(0, 263);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 32);
-            this.panel1.TabIndex = 7;
-            // 
             // btnClosed_39_Toan
             // 
             this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
@@ -138,6 +95,49 @@
             this.btnClosed_39_Toan.Text = "X";
             this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
             this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
+            // 
+            // btnFolderPath_39_Toan
+            // 
+            this.btnFolderPath_39_Toan.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFolderPath_39_Toan.Location = new System.Drawing.Point(641, 0);
+            this.btnFolderPath_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFolderPath_39_Toan.Name = "btnFolderPath_39_Toan";
+            this.btnFolderPath_39_Toan.Size = new System.Drawing.Size(136, 32);
+            this.btnFolderPath_39_Toan.TabIndex = 4;
+            this.btnFolderPath_39_Toan.Text = "Browse Folder";
+            this.btnFolderPath_39_Toan.UseVisualStyleBackColor = true;
+            this.btnFolderPath_39_Toan.Click += new System.EventHandler(this.btnFolderPath_39_Toan_Click);
+            // 
+            // lblFolderPath_39_Toan
+            // 
+            this.lblFolderPath_39_Toan.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFolderPath_39_Toan.Location = new System.Drawing.Point(3, 0);
+            this.lblFolderPath_39_Toan.Name = "lblFolderPath_39_Toan";
+            this.lblFolderPath_39_Toan.Size = new System.Drawing.Size(157, 32);
+            this.lblFolderPath_39_Toan.TabIndex = 5;
+            this.lblFolderPath_39_Toan.Text = "Folder path";
+            this.lblFolderPath_39_Toan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtFolderPath_39_Toan
+            // 
+            this.txtFolderPath_39_Toan.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFolderPath_39_Toan.Location = new System.Drawing.Point(167, 2);
+            this.txtFolderPath_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFolderPath_39_Toan.Name = "txtFolderPath_39_Toan";
+            this.txtFolderPath_39_Toan.Size = new System.Drawing.Size(468, 30);
+            this.txtFolderPath_39_Toan.TabIndex = 6;
+            this.txtFolderPath_39_Toan.TextChanged += new System.EventHandler(this.txtFolderPath_39_Toan_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblFolderPath_39_Toan);
+            this.panel1.Controls.Add(this.btnFolderPath_39_Toan);
+            this.panel1.Controls.Add(this.txtFolderPath_39_Toan);
+            this.panel1.Location = new System.Drawing.Point(0, 263);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 32);
+            this.panel1.TabIndex = 7;
             // 
             // FrmLogin_39_Toan
             // 

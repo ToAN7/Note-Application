@@ -48,10 +48,8 @@ namespace NoteApp.Forms.FrmContent
         {
             if (File.Exists(FilePath))
             {
-                // C://Users/.../Desktop/FileName_39_Toan.md
-                // ~~~~~~~~~~~~~~~~~~~~~~           LastIndexOf('\\')
-                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  IndexOf('.')
-                String FileName_39_Toan = FilePath.Substring(FilePath.LastIndexOf('\\') + 1, FilePath.IndexOf('.') - FilePath.LastIndexOf('\\') - 1);
+
+                String FileName_39_Toan = System.IO.Path.GetFileNameWithoutExtension(FilePath);
 
                 if (tbContent_39_Toan.TabPages.ContainsKey(FileName_39_Toan))
                 {
@@ -98,6 +96,7 @@ namespace NoteApp.Forms.FrmContent
                         RichTextBox rtbContent_39_Toan = new RichTextBox();
                         rtbContent_39_Toan.Dock = DockStyle.Fill;
                         rtbContent_39_Toan.Text = File.ReadAllText(FilePath);
+                        rtbContent_39_Toan.BorderStyle = BorderStyle.None;
                         rtbContent_39_Toan.Show();
                         tbContent_39_Toan.TabPages[FileName_39_Toan].Controls.Add(rtbContent_39_Toan);
                         break;
@@ -129,10 +128,10 @@ namespace NoteApp.Forms.FrmContent
                 switch (contentType)
                 {
                     case ContentTypes_39_Toan.Text:
-                        fileName_39_Toan = DateTime.Now.ToString("dd_MM_yyyy") + "t.md";
+                        fileName_39_Toan = "NewText" +  DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".md";
                         break;
                     case ContentTypes_39_Toan.Doodle:
-                        fileName_39_Toan = DateTime.Now.ToString("dd_MM_yyyy") + "d.doodle";
+                        fileName_39_Toan = "NewDoodle" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".doodle";
                         break;
                 };
                 File.Create(FilePath + "\\" + fileName_39_Toan).Close();
@@ -143,6 +142,11 @@ namespace NoteApp.Forms.FrmContent
         public void SaveContent_39_Toan(String Path)
         {
             String fileName_39_Toan = "";
+            if (tbContent_39_Toan.SelectedTab == null)
+            {
+                return;
+            }
+
             if (tbContent_39_Toan.SelectedTab.Controls.Count > 0)
             {
                 if (tbContent_39_Toan.SelectedTab.Controls[0] is RichTextBox)
@@ -157,26 +161,10 @@ namespace NoteApp.Forms.FrmContent
             }
         }
 
-        // GETTERS
-        public String GetContent_39_Toan(TabPage tpContent_39_Toan)
-        {
-            if (tpContent_39_Toan.Controls.Count > 0)
-            {
-                if (tpContent_39_Toan.Controls[0] is RichTextBox)
-                {
-                    return (tpContent_39_Toan.Controls[0] as RichTextBox).Text;
-                }
-                else if (tpContent_39_Toan.Controls[0] is FrmDoodle_39_Toan)
-                {
-                    return (tpContent_39_Toan.Controls[0] as FrmDoodle_39_Toan).Tag.ToString();
-                }
-            }
-            return "";
-        }
 
         public static ContentTypes_39_Toan GetContentType_39_Toan(String filePath)
         {
-            String fileExtension_39_Toan = filePath.Substring(filePath.IndexOf('.'));
+            String fileExtension_39_Toan = System.IO.Path.GetExtension(filePath);
             if (fileExtension_39_Toan == ".md")
             {
                 return ContentTypes_39_Toan.Text;
