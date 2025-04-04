@@ -91,7 +91,7 @@ namespace NoteApp
 
                     tsbCreateFolder_39_Toan.Click += (s, ev) =>
                     {
-                        btnCreateFolder_39_Toan_Click(s, ev);
+                        CreateFolder_39_Toan(Path.GetDirectoryName(FilePath_39_Toan));
                     };
 
                     tsbDelete_39_Toan.Click += (s, ev) =>
@@ -160,7 +160,7 @@ namespace NoteApp
 
                     ContextMenuStrip cmsOptions_39_Toan = new ContextMenuStrip()
                     {
-                        Items = { tsbCreateText_39_Toan, tsbCreateDoodle_39_Toan, new ToolStripSeparator(), txtNewFileName_39_Toan, tsbRename_39_Toan, new ToolStripSeparator(), tsbClose_39_Toan, tsbDelete_39_Toan },
+                        Items = { tsbCreateText_39_Toan, tsbCreateDoodle_39_Toan, tsbCreateFolder_39_Toan, new ToolStripSeparator(), txtNewFileName_39_Toan, tsbRename_39_Toan, new ToolStripSeparator(), tsbClose_39_Toan, tsbDelete_39_Toan },
                         TopLevel = true,
                     };
 
@@ -245,12 +245,19 @@ namespace NoteApp
             pnlDefault_39_Toan.Invalidate();
         }
 
-        public void loadFileIntoTreeView_39_Toan(String path)
+        public void loadFileIntoTreeView_39_Toan(String path, TreeNode prevPath)
         {
-            trFolderLocation_39_Toan.Nodes.Clear();
-
             TreeNode root_39_Toan = new TreeNode(path);
-            trFolderLocation_39_Toan.Nodes.Add(root_39_Toan);
+            if (prevPath == null)
+            {
+                trFolderLocation_39_Toan.Nodes.Clear();
+                trFolderLocation_39_Toan.Nodes.Add(root_39_Toan);
+            }
+            else 
+            {
+                root_39_Toan.Text = path.Substring(path.LastIndexOf('\\') + 1);
+                prevPath.Nodes.Add(root_39_Toan);
+            }
 
             try
             {
@@ -272,21 +279,7 @@ namespace NoteApp
 
                 foreach (String FolderPath_39_Toan in subFolders_39_Toan)
                 {
-                    TreeNode node_39_Toan = new TreeNode(FolderPath_39_Toan);
-                    node_39_Toan.Text = FolderPath_39_Toan.Substring(FolderPath_39_Toan.LastIndexOf('\\') + 1);
-                    String[] subFiles_39_Toan = Directory.GetFiles(FolderPath_39_Toan);
-                    foreach (String FilePath_39_Toan in subFiles_39_Toan)
-                    {
-                        if (FrmContent_39_Toan.GetContentType_39_Toan(FilePath_39_Toan) == ContentTypes_39_Toan.None)
-                        {
-                            continue;
-                        }
-
-                        TreeNode subNode_39_Toan = new TreeNode(FilePath_39_Toan);
-                        subNode_39_Toan.Text = FilePath_39_Toan.Substring(FilePath_39_Toan.LastIndexOf('\\') + 1);
-                        node_39_Toan.Nodes.Add(subNode_39_Toan);
-                    }
-                    root_39_Toan.Nodes.Add(node_39_Toan);
+                    loadFileIntoTreeView_39_Toan(FolderPath_39_Toan, root_39_Toan);
                 }
 
                 root_39_Toan.Expand();
@@ -296,6 +289,11 @@ namespace NoteApp
                 MessageBox.Show($"Error loading file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        public void loadFileIntoTreeView_39_Toan(String path)
+        {
+            loadFileIntoTreeView_39_Toan(path, null);
         }
 
         private void CreateFile_39_Toan(String folderPath_39_Toan, ContentTypes_39_Toan contentType)
@@ -337,18 +335,22 @@ namespace NoteApp
             }
         }
 
-        private void btnCreateFolder_39_Toan_Click(object sender, EventArgs e)
+        private void CreateFolder_39_Toan(String folderPath_39_Toan)
         {
-            String FolderName_39_Toan = FolderPath_39_Toan + "\\New_Folder\\";
+            String FolderName_39_Toan = folderPath_39_Toan + "\\New_Folder\\";
             int NameIndex_39_Toan = 0;
             do
             {
                 NameIndex_39_Toan++;
-                FolderName_39_Toan = FolderPath_39_Toan + "\\New_Folder" + NameIndex_39_Toan + "\\";
+                FolderName_39_Toan = folderPath_39_Toan + "\\New_Folder" + NameIndex_39_Toan + "\\";
             } while (Directory.Exists(FolderName_39_Toan));
-
             Directory.CreateDirectory(FolderName_39_Toan);
             loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
+        }
+
+        private void btnCreateFolder_39_Toan_Click(object sender, EventArgs e)
+        {
+            CreateFolder_39_Toan(FolderPath_39_Toan);
         }
     }
 }
