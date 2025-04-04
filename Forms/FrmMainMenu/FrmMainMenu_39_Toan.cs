@@ -125,6 +125,7 @@ namespace NoteApp
                         }
                         else
                         {
+                            pnlDefault_39_Toan.Controls.Clear();
                             CreateFile_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Text);
                         }
                     };
@@ -138,6 +139,7 @@ namespace NoteApp
                         }
                         else
                         {
+                            pnlDefault_39_Toan.Controls.Clear();
                             CreateFile_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Doodle);
                         }
                     };
@@ -198,6 +200,7 @@ namespace NoteApp
                         }
                         else
                         {
+                            pnlDefault_39_Toan.Controls.Clear();
                             CreateFile_39_Toan(SubFolderPath_39_Toan, ContentTypes_39_Toan.Text);
                         }
                     };
@@ -211,6 +214,7 @@ namespace NoteApp
                         }
                         else
                         {
+                            pnlDefault_39_Toan.Controls.Clear();
                             CreateFile_39_Toan(SubFolderPath_39_Toan, ContentTypes_39_Toan.Doodle);
                         }
                     };
