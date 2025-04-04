@@ -323,7 +323,7 @@ namespace NoteApp
         {
             if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan)
             {
-                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).SaveContent_39_Toan(FolderPath_39_Toan);
+                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).SaveContent_39_Toan();
             }
         }
 

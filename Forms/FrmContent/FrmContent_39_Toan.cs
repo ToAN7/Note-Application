@@ -120,7 +120,8 @@ namespace NoteApp.Forms.FrmContent
                 }
 
                 tbContent_39_Toan.SelectedTab = tbContent_39_Toan.TabPages[FileName_39_Toan];
-                tbContent_39_Toan.TabPages[FileName_39_Toan].Controls[0].Focus();
+                tbContent_39_Toan.TabPages[FileName_39_Toan].Focus();
+                tbContent_39_Toan.TabPages[FileName_39_Toan].Tag = Path.GetDirectoryName(FilePath);
             }
             else
             {
@@ -139,7 +140,7 @@ namespace NoteApp.Forms.FrmContent
             }
         }
 
-        public void SaveContent_39_Toan(String Path)
+        public void SaveContent_39_Toan()
         {
             String fileName_39_Toan = "";
             if (tbContent_39_Toan.SelectedTab == null)
@@ -152,11 +153,11 @@ namespace NoteApp.Forms.FrmContent
                 if (tbContent_39_Toan.SelectedTab.Controls[0] is RichTextBox)
                 {
                     fileName_39_Toan = tbContent_39_Toan.SelectedTab.Text + ".md";
-                    File.WriteAllText(Path + "\\" + fileName_39_Toan, (tbContent_39_Toan.SelectedTab.Controls[0] as RichTextBox).Text);
+                    File.WriteAllText(tbContent_39_Toan.SelectedTab.Tag.ToString() + "\\" + fileName_39_Toan, (tbContent_39_Toan.SelectedTab.Controls[0] as RichTextBox).Text);
                 }
                 else if (tbContent_39_Toan.SelectedTab.Controls[0] is FrmDoodle_39_Toan)
                 {
-                    (tbContent_39_Toan.SelectedTab.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(Path, tbContent_39_Toan.SelectedTab.Text);
+                    (tbContent_39_Toan.SelectedTab.Controls[0] as FrmDoodle_39_Toan).SaveDoodleAsFile_39_Toan(tbContent_39_Toan.SelectedTab.Tag.ToString(), tbContent_39_Toan.SelectedTab.Text);
                 }
             }
         }
