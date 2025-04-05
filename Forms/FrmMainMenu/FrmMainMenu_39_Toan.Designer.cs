@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainMenu_39_Toan));
             this.splMainMenu_39_Toan = new System.Windows.Forms.SplitContainer();
             this.pnlLeftPanel_39_Toan = new System.Windows.Forms.Panel();
             this.trFolderLocation_39_Toan = new System.Windows.Forms.TreeView();
@@ -40,6 +42,7 @@
             this.btnCreateNewDoodle_39_Toan = new System.Windows.Forms.Button();
             this.btnCreateNewFile_39_Toan = new System.Windows.Forms.Button();
             this.fldOpenFolder_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.imgTree_39_Toan = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splMainMenu_39_Toan)).BeginInit();
             this.splMainMenu_39_Toan.Panel1.SuspendLayout();
             this.splMainMenu_39_Toan.Panel2.SuspendLayout();
@@ -84,9 +87,12 @@
             // 
             this.trFolderLocation_39_Toan.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.trFolderLocation_39_Toan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trFolderLocation_39_Toan.ImageIndex = 0;
+            this.trFolderLocation_39_Toan.ImageList = this.imgTree_39_Toan;
             this.trFolderLocation_39_Toan.Location = new System.Drawing.Point(0, 0);
             this.trFolderLocation_39_Toan.Margin = new System.Windows.Forms.Padding(4);
             this.trFolderLocation_39_Toan.Name = "trFolderLocation_39_Toan";
+            this.trFolderLocation_39_Toan.SelectedImageIndex = 0;
             this.trFolderLocation_39_Toan.Size = new System.Drawing.Size(345, 643);
             this.trFolderLocation_39_Toan.TabIndex = 0;
             this.trFolderLocation_39_Toan.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trFolderLocation_39_Toan_NodeMouseClick);
@@ -191,6 +197,15 @@
             this.btnCreateNewFile_39_Toan.UseVisualStyleBackColor = true;
             this.btnCreateNewFile_39_Toan.Click += new System.EventHandler(this.btnCreateNewFile_39_Toan_Click);
             // 
+            // imgTree_39_Toan
+            // 
+            this.imgTree_39_Toan.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgTree_39_Toan.ImageStream")));
+            this.imgTree_39_Toan.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgTree_39_Toan.Images.SetKeyName(0, "ImgFolder_39_Toan");
+            this.imgTree_39_Toan.Images.SetKeyName(1, "ImgMarkdown_39_Toan");
+            this.imgTree_39_Toan.Images.SetKeyName(2, "ImgDoodle_39_Toan");
+            this.imgTree_39_Toan.Images.SetKeyName(3, "ImgPhoto_39_Toan");
+            // 
             // FrmMainMenu_39_Toan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -226,6 +241,7 @@
         private System.Windows.Forms.Button btnCreateNewDoodle_39_Toan;
         private System.Windows.Forms.Button btnCreateNewFile_39_Toan;
         private System.Windows.Forms.Button btnClearTab_39_Toan;
+        private System.Windows.Forms.ImageList imgTree_39_Toan;
     }
 }
 

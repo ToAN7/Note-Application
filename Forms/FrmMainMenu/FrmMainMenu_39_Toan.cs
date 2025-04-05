@@ -252,6 +252,7 @@ namespace NoteApp
         public void loadFileIntoTreeView_39_Toan(String path, TreeNode prevPath)
         {
             TreeNode root_39_Toan = new TreeNode(path);
+            root_39_Toan.ImageIndex = 0;
             if (prevPath == null)
             {
                 trFolderLocation_39_Toan.Nodes.Clear();
@@ -270,12 +271,24 @@ namespace NoteApp
 
                 foreach (String FilePath_39_Toan in Files_39_Toan)
                 {
-                    if (FrmContent_39_Toan.GetContentType_39_Toan(FilePath_39_Toan) == ContentTypes_39_Toan.None)
+                    ContentTypes_39_Toan contentTypes_39_Toan = FrmContent_39_Toan.GetContentType_39_Toan(FilePath_39_Toan);
+                    TreeNode node_39_Toan = new TreeNode(FilePath_39_Toan);
+                    if (contentTypes_39_Toan == ContentTypes_39_Toan.None)
                     {
                         continue;
                     }
-
-                    TreeNode node_39_Toan = new TreeNode(FilePath_39_Toan);
+                    if (contentTypes_39_Toan == ContentTypes_39_Toan.Text)
+                    {
+                        node_39_Toan.ImageIndex = 1;
+                    }
+                    else if (contentTypes_39_Toan == ContentTypes_39_Toan.Doodle)
+                    {
+                        node_39_Toan.ImageIndex = 2;
+                    }
+                    else if (contentTypes_39_Toan == ContentTypes_39_Toan.Image)
+                    {
+                        node_39_Toan.ImageIndex = 3;
+                    }
 
                     node_39_Toan.Text = FilePath_39_Toan.Substring(FilePath_39_Toan.LastIndexOf('\\') + 1);
                     root_39_Toan.Nodes.Add(node_39_Toan);
