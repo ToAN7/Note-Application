@@ -221,6 +221,11 @@ namespace NoteApp
 
                     tsbRename_39_Toan.Click += (s, ev) =>
                     {
+                        if (SubFolderPath_39_Toan == FolderPath_39_Toan)
+                        {
+                            MessageBox.Show("Cannot rename the root folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         if (txtNewFolderName_39_Toan.Text != "")
                         {
                             String NewFolderPath_39_Toan = Path.GetDirectoryName(SubFolderPath_39_Toan) + '\\' + txtNewFolderName_39_Toan.Text;
