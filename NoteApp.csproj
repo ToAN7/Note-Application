@@ -88,7 +88,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomControls\RoundButton.cs">
+    <Compile Include="CustomControls\RoundButton_39_Toan.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Forms\FrmContent\FrmDoodle_39_Toan.resx">
