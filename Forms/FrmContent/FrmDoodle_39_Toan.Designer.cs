@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblChooseColor_39_Toan = new System.Windows.Forms.Label();
-            this.btnClear_39_Toan = new RoundButton();
-            this.btnUndo_39_Toan = new RoundButton();
-            this.btnRedo_39_Toan = new RoundButton();
+            this.btnClear_39_Toan = new RoundButton_39_Toan();
+            this.btnUndo_39_Toan = new RoundButton_39_Toan();
+            this.btnRedo_39_Toan = new RoundButton_39_Toan();
             this.clrChooseColor_39_Toan = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,9 +64,9 @@
             // btnClear_39_Toan
             // 
             this.btnClear_39_Toan.BackColor = System.Drawing.Color.DimGray;
-            this.btnClear_39_Toan.BorderColor = System.Drawing.Color.Black;
-            this.btnClear_39_Toan.BorderRadius = 50;
-            this.btnClear_39_Toan.BorderSize = 0;
+            this.btnClear_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
+            this.btnClear_39_Toan.BorderRadius_39_Toan = 50;
+            this.btnClear_39_Toan.BorderSize_39_Toan = 0;
             this.btnClear_39_Toan.FlatAppearance.BorderSize = 0;
             this.btnClear_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear_39_Toan.ForeColor = System.Drawing.Color.White;
@@ -81,9 +81,9 @@
             // btnUndo_39_Toan
             // 
             this.btnUndo_39_Toan.BackColor = System.Drawing.Color.DimGray;
-            this.btnUndo_39_Toan.BorderColor = System.Drawing.Color.Black;
-            this.btnUndo_39_Toan.BorderRadius = 50;
-            this.btnUndo_39_Toan.BorderSize = 0;
+            this.btnUndo_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
+            this.btnUndo_39_Toan.BorderRadius_39_Toan = 50;
+            this.btnUndo_39_Toan.BorderSize_39_Toan = 0;
             this.btnUndo_39_Toan.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnUndo_39_Toan.FlatAppearance.BorderSize = 0;
             this.btnUndo_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -100,9 +100,9 @@
             // 
             this.btnRedo_39_Toan.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRedo_39_Toan.BackColor = System.Drawing.Color.DimGray;
-            this.btnRedo_39_Toan.BorderColor = System.Drawing.Color.Black;
-            this.btnRedo_39_Toan.BorderRadius = 50;
-            this.btnRedo_39_Toan.BorderSize = 0;
+            this.btnRedo_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
+            this.btnRedo_39_Toan.BorderRadius_39_Toan = 50;
+            this.btnRedo_39_Toan.BorderSize_39_Toan = 0;
             this.btnRedo_39_Toan.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnRedo_39_Toan.FlatAppearance.BorderSize = 0;
             this.btnRedo_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -142,10 +142,10 @@
 
         #endregion
 
-        private RoundButton btnRedo_39_Toan;
-        private RoundButton btnUndo_39_Toan;
+        private RoundButton_39_Toan btnRedo_39_Toan;
+        private RoundButton_39_Toan btnUndo_39_Toan;
         private System.Windows.Forms.Panel panel1;
-        private RoundButton btnClear_39_Toan;
+        private RoundButton_39_Toan btnClear_39_Toan;
         private System.Windows.Forms.Label lblChooseColor_39_Toan;
         private System.Windows.Forms.ColorDialog clrChooseColor_39_Toan;
     }

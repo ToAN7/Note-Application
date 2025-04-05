@@ -31,7 +31,7 @@
             this.lblTitle_39_Toan = new System.Windows.Forms.Label();
             this.grpRecentFol_39_Toan = new System.Windows.Forms.GroupBox();
             this.pnlGrab_39_Toan = new System.Windows.Forms.Panel();
-            this.btnClosed_39_Toan = new RoundButton();
+            this.btnClosed_39_Toan = new RoundButton_39_Toan();
             this.btnFolderPath_39_Toan = new System.Windows.Forms.Button();
             this.lblFolderPath_39_Toan = new System.Windows.Forms.Label();
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
@@ -80,9 +80,9 @@
             // btnClosed_39_Toan
             // 
             this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
-            this.btnClosed_39_Toan.BorderColor = System.Drawing.Color.Black;
-            this.btnClosed_39_Toan.BorderRadius = 20;
-            this.btnClosed_39_Toan.BorderSize = 0;
+            this.btnClosed_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
+            this.btnClosed_39_Toan.BorderRadius_39_Toan = 20;
+            this.btnClosed_39_Toan.BorderSize_39_Toan = 0;
             this.btnClosed_39_Toan.FlatAppearance.BorderSize = 0;
             this.btnClosed_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
@@ -173,6 +173,6 @@
         private System.Windows.Forms.TextBox txtFolderPath_39_Toan;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FolderBrowserDialog fldFolderPath_39_Toan;
-        private RoundButton btnClosed_39_Toan;
+        private RoundButton_39_Toan btnClosed_39_Toan;
     }
 }

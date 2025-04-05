@@ -197,9 +197,9 @@ namespace NoteApp.Forms.FrmContent
         {
             btnRedo_39_Toan.Width = btnRedo_39_Toan.Height;
             btnUndo_39_Toan.Width = btnUndo_39_Toan.Height;
-            btnRedo_39_Toan.BorderRadius = btnRedo_39_Toan.Height / 2;
-            btnUndo_39_Toan.BorderRadius = btnUndo_39_Toan.Height / 2;
-            btnClear_39_Toan.BorderRadius = btnClear_39_Toan.Height / 2;
+            btnRedo_39_Toan.BorderRadius_39_Toan = btnRedo_39_Toan.Height / 2;
+            btnUndo_39_Toan.BorderRadius_39_Toan = btnUndo_39_Toan.Height / 2;
+            btnClear_39_Toan.BorderRadius_39_Toan = btnClear_39_Toan.Height / 2;
             btnClear_39_Toan.Location = new Point(btnUndo_39_Toan.Location.X + btnUndo_39_Toan.Width + 10, 0);
             lblChooseColor_39_Toan.Location = new Point(btnClear_39_Toan.Location.X + btnClear_39_Toan.Width + 10, 0);
         }
