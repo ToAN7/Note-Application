@@ -72,25 +72,6 @@ namespace NoteApp.Forms.FrmContent
 
                 tbContent_39_Toan.TabPages.Add(FileName_39_Toan, FileName_39_Toan);
 
-                ToolStripButton tsbClose_39_Toan = new ToolStripButton("Close");
-                tsbClose_39_Toan.Click += (sender, e) => { ClearTab_39_Toan(tbContent_39_Toan.SelectedTab.Name); };
-
-                ToolStripButton tsbCloseAll_39_Toan = new ToolStripButton("Close All");
-                tsbCloseAll_39_Toan.Click += (sender, e) => { ClearTabs_39_Toan(); };
-
-                tbContent_39_Toan.TabPages[FileName_39_Toan].ContextMenuStrip = new ContextMenuStrip()
-                {
-                    Items = { tsbClose_39_Toan, tsbCloseAll_39_Toan },
-                    TopLevel = true,
-                };
-                tbContent_39_Toan.TabPages[FileName_39_Toan].MouseClick += (sender, e) =>
-                {
-                    if (e.Button == MouseButtons.Right)
-                    {
-                        tbContent_39_Toan.ContextMenuStrip.Show();
-                    }
-                };
-
                 switch (contentType)
                 {
                     case ContentTypes_39_Toan.Text:
@@ -99,12 +80,6 @@ namespace NoteApp.Forms.FrmContent
                         rtbContent_39_Toan.Text = File.ReadAllText(FilePath);
                         rtbContent_39_Toan.BorderStyle = BorderStyle.None;
                         rtbContent_39_Toan.Show();
-
-                        rtbContent_39_Toan.ContextMenuStrip = new ContextMenuStrip()
-                        {
-                            Items = { tsbClose_39_Toan, tsbCloseAll_39_Toan },
-                            TopLevel = true,
-                        };
 
                         rtbContent_39_Toan.MouseClick += (sender, e) =>
                         {
@@ -119,10 +94,6 @@ namespace NoteApp.Forms.FrmContent
                             if (e.Control && e.KeyCode == Keys.S)
                             {
                                 SaveContent_39_Toan();
-                            }
-                            else if (e.Control && e.KeyCode == Keys.N)
-                            {
-                                LoadContent_39_Toan(Path.GetDirectoryName(FilePath), ContentTypes_39_Toan.Text);
                             }
                             else if (e.Control && e.KeyCode == Keys.F)
                             {
@@ -185,6 +156,25 @@ namespace NoteApp.Forms.FrmContent
                         tbContent_39_Toan.TabPages[FileName_39_Toan].Controls.Add(frmContent_39_Toan);
                         break;
                 }
+
+                ToolStripButton tsbClose_39_Toan = new ToolStripButton("Close");
+                tsbClose_39_Toan.Click += (sender, e) => { ClearTab_39_Toan(tbContent_39_Toan.SelectedTab.Name); };
+
+                ToolStripButton tsbCloseAll_39_Toan = new ToolStripButton("Close All");
+                tsbCloseAll_39_Toan.Click += (sender, e) => { ClearTabs_39_Toan(); };
+
+                tbContent_39_Toan.TabPages[FileName_39_Toan].Controls[0].ContextMenuStrip = new ContextMenuStrip()
+                {
+                    Items = { tsbClose_39_Toan, tsbCloseAll_39_Toan },
+                    TopLevel = true,
+                };
+                tbContent_39_Toan.TabPages[FileName_39_Toan].MouseClick += (sender, e) =>
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        tbContent_39_Toan.ContextMenuStrip.Show();
+                    }
+                };
 
                 tbContent_39_Toan.SelectedTab = tbContent_39_Toan.TabPages[FileName_39_Toan];
                 tbContent_39_Toan.TabPages[FileName_39_Toan].Focus();
