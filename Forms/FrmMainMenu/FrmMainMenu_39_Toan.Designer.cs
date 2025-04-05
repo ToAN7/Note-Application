@@ -176,7 +176,7 @@
             this.btnCreateNewDoodle_39_Toan.Name = "btnCreateNewDoodle_39_Toan";
             this.btnCreateNewDoodle_39_Toan.Size = new System.Drawing.Size(195, 47);
             this.btnCreateNewDoodle_39_Toan.TabIndex = 1;
-            this.btnCreateNewDoodle_39_Toan.Text = "Create New Doodle (Ctrl + D)";
+            this.btnCreateNewDoodle_39_Toan.Text = "Create New Doodle";
             this.btnCreateNewDoodle_39_Toan.UseVisualStyleBackColor = false;
             this.btnCreateNewDoodle_39_Toan.Click += new System.EventHandler(this.btnCreateNewDoodle_39_Toan_Click);
             // 
@@ -187,7 +187,7 @@
             this.btnCreateNewFile_39_Toan.Name = "btnCreateNewFile_39_Toan";
             this.btnCreateNewFile_39_Toan.Size = new System.Drawing.Size(195, 47);
             this.btnCreateNewFile_39_Toan.TabIndex = 0;
-            this.btnCreateNewFile_39_Toan.Text = "Create New File (Crtl + N)";
+            this.btnCreateNewFile_39_Toan.Text = "Create New File";
             this.btnCreateNewFile_39_Toan.UseVisualStyleBackColor = true;
             this.btnCreateNewFile_39_Toan.Click += new System.EventHandler(this.btnCreateNewFile_39_Toan_Click);
             // 
