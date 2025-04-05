@@ -84,34 +84,34 @@ namespace NoteApp
                     ToolStripButton tsbCreateDoodle_39_Toan = new ToolStripButton("Create Doodle File");
                     ToolStripButton tsbCreateFolder_39_Toan = new ToolStripButton("Create Folder");
                     ToolStripButton tsbRename_39_Toan = new ToolStripButton("Rename File");
-                    ToolStripTextBox txtNewFileName_39_Toan = new ToolStripTextBox();
+                    ToolStripTextBox txtNewName_39_Toan = new ToolStripTextBox();
 
-                    String FilePath_39_Toan = e.Node.FullPath;
-                    txtNewFileName_39_Toan.Text = Path.GetFileNameWithoutExtension(FilePath_39_Toan);
+                    String Path_39_Toan = e.Node.FullPath;
+                    txtNewName_39_Toan.Text = Path.GetFileNameWithoutExtension(Path_39_Toan);
 
                     tsbCreateFolder_39_Toan.Click += (s, ev) =>
                     {
-                        CreateFolder_39_Toan(Path.GetDirectoryName(FilePath_39_Toan));
+                        CreateFolder_39_Toan(Path.GetDirectoryName(Path_39_Toan));
                     };
 
                     tsbDelete_39_Toan.Click += (s, ev) =>
                     {
                         if (MessageBox.Show("Are you sure you want to delete this file?", "Delete File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            File.Delete(FilePath_39_Toan);
+                            File.Delete(Path_39_Toan);
                             loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
-                            if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan)))
+                            if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan)))
                             {
-                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan));
+                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan));
                             }
                         }
                     };
 
                     tsbClose_39_Toan.Click += (s, ev) =>
                     {
-                        if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan)))
+                        if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan)))
                         {
-                            (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan));
+                            (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan));
                         }
                     };
 
@@ -120,13 +120,13 @@ namespace NoteApp
                         if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan)
                         {
                             FrmContent_39_Toan frmLoadForm_39_Toan = (FrmContent_39_Toan)(pnlDefault_39_Toan.Controls[0]);
-                            frmLoadForm_39_Toan.LoadContent_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Text);
+                            frmLoadForm_39_Toan.LoadContent_39_Toan(Path.GetDirectoryName(Path_39_Toan), ContentTypes_39_Toan.Text);
                             loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
                         }
                         else
                         {
                             pnlDefault_39_Toan.Controls.Clear();
-                            CreateFile_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Text);
+                            CreateFile_39_Toan(Path.GetDirectoryName(Path_39_Toan), ContentTypes_39_Toan.Text);
                         }
                     };
 
@@ -134,27 +134,27 @@ namespace NoteApp
                         if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan)
                         {
                             FrmContent_39_Toan frmLoadForm_39_Toan = (FrmContent_39_Toan)(pnlDefault_39_Toan.Controls[0]);
-                            frmLoadForm_39_Toan.LoadContent_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Doodle);
+                            frmLoadForm_39_Toan.LoadContent_39_Toan(Path.GetDirectoryName(Path_39_Toan), ContentTypes_39_Toan.Doodle);
                             loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
                         }
                         else
                         {
                             pnlDefault_39_Toan.Controls.Clear();
-                            CreateFile_39_Toan(Path.GetDirectoryName(FilePath_39_Toan), ContentTypes_39_Toan.Doodle);
+                            CreateFile_39_Toan(Path.GetDirectoryName(Path_39_Toan), ContentTypes_39_Toan.Doodle);
                         }
                     };
 
                     tsbRename_39_Toan.Click += (s, ev) =>
                     {
-                        if (txtNewFileName_39_Toan.Text != "")
+                        if (txtNewName_39_Toan.Text != "")
                         {
-                            String NewFilePath_39_Toan = Path.GetDirectoryName(FilePath_39_Toan) + '\\' + txtNewFileName_39_Toan.Text + Path.GetExtension(FilePath_39_Toan);
-                            File.Move(FilePath_39_Toan, NewFilePath_39_Toan);
+                            String NewPath_39_Toan = Path.GetDirectoryName(Path_39_Toan) + '\\' + txtNewName_39_Toan.Text + Path.GetExtension(Path_39_Toan);
+                            File.Move(Path_39_Toan, NewPath_39_Toan);
                             
-                            if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan)))
+                            if (pnlDefault_39_Toan.Controls[0] is FrmContent_39_Toan && (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).IsExistTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan)))
                             {
-                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(FilePath_39_Toan));
-                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).LoadContent_39_Toan(NewFilePath_39_Toan, ContentTypes_39_Toan.None);
+                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).ClearTab_39_Toan(Path.GetFileNameWithoutExtension(Path_39_Toan));
+                                (pnlDefault_39_Toan.Controls[0] as FrmContent_39_Toan).LoadContent_39_Toan(NewPath_39_Toan, ContentTypes_39_Toan.None);
                             }
                             loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
                         }
@@ -162,7 +162,7 @@ namespace NoteApp
 
                     ContextMenuStrip cmsOptions_39_Toan = new ContextMenuStrip()
                     {
-                        Items = { tsbCreateText_39_Toan, tsbCreateDoodle_39_Toan, tsbCreateFolder_39_Toan, new ToolStripSeparator(), txtNewFileName_39_Toan, tsbRename_39_Toan, new ToolStripSeparator(), tsbClose_39_Toan, tsbDelete_39_Toan },
+                        Items = { tsbCreateText_39_Toan, tsbCreateDoodle_39_Toan, tsbCreateFolder_39_Toan, new ToolStripSeparator(), txtNewName_39_Toan, tsbRename_39_Toan, new ToolStripSeparator(), tsbClose_39_Toan, tsbDelete_39_Toan },
                         TopLevel = true,
                     };
 

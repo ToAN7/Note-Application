@@ -19,6 +19,7 @@ namespace NoteApp.Forms.FrmContent
         Image,
         Doodle
     }
+
     public partial class FrmContent_39_Toan : Form
     {
         // CONSTRUCTOR
@@ -98,6 +99,72 @@ namespace NoteApp.Forms.FrmContent
                         rtbContent_39_Toan.Text = File.ReadAllText(FilePath);
                         rtbContent_39_Toan.BorderStyle = BorderStyle.None;
                         rtbContent_39_Toan.Show();
+
+                        rtbContent_39_Toan.ContextMenuStrip = new ContextMenuStrip()
+                        {
+                            Items = { tsbClose_39_Toan, tsbCloseAll_39_Toan },
+                            TopLevel = true,
+                        };
+
+                        rtbContent_39_Toan.MouseClick += (sender, e) =>
+                        {
+                            if (e.Button == MouseButtons.Right)
+                            {
+                                rtbContent_39_Toan.ContextMenuStrip.Show();
+                            }
+                        };
+
+                        rtbContent_39_Toan.KeyDown += (sender, e) =>
+                        {
+                            if (e.Control && e.KeyCode == Keys.S)
+                            {
+                                SaveContent_39_Toan();
+                            }
+                            else if (e.Control && e.KeyCode == Keys.N)
+                            {
+                                LoadContent_39_Toan(Path.GetDirectoryName(FilePath), ContentTypes_39_Toan.Text);
+                            }
+                            else if (e.Control && e.KeyCode == Keys.F)
+                            {
+                                String[] sLines_39_Toan = rtbContent_39_Toan.Lines;
+                                for (int i = 0; i < sLines_39_Toan.Length; i++)
+                                {
+                                    if (sLines_39_Toan[i].StartsWith("# "))
+                                    {
+                                        rtbContent_39_Toan.SelectionStart = rtbContent_39_Toan.GetFirstCharIndexFromLine(i);
+                                        rtbContent_39_Toan.SelectionLength = sLines_39_Toan[i].Length;
+                                        rtbContent_39_Toan.SelectionColor = Color.Red;
+                                        rtbContent_39_Toan.SelectionFont = new Font(rtbContent_39_Toan.Font.FontFamily, rtbContent_39_Toan.Font.Size + 12);
+                                    }
+                                    else if (sLines_39_Toan[i].StartsWith("## "))
+                                    {
+                                        rtbContent_39_Toan.SelectionStart = rtbContent_39_Toan.GetFirstCharIndexFromLine(i);
+                                        rtbContent_39_Toan.SelectionLength = sLines_39_Toan[i].Length;
+                                        rtbContent_39_Toan.SelectionColor = Color.Blue;
+                                        rtbContent_39_Toan.SelectionFont = new Font(rtbContent_39_Toan.Font.FontFamily, rtbContent_39_Toan.Font.Size + 8);
+                                    }
+                                    else if (sLines_39_Toan[i].StartsWith("### "))
+                                    {
+                                        rtbContent_39_Toan.SelectionStart = rtbContent_39_Toan.GetFirstCharIndexFromLine(i);
+                                        rtbContent_39_Toan.SelectionLength = sLines_39_Toan[i].Length;
+                                        rtbContent_39_Toan.SelectionColor = Color.Green;
+                                        rtbContent_39_Toan.SelectionFont = new Font(rtbContent_39_Toan.Font.FontFamily, rtbContent_39_Toan.Font.Size + 4);
+                                    }
+                                    else if (sLines_39_Toan[i].Contains("**"))
+                                    {
+                                        int startIndex_39_Toan = sLines_39_Toan[i].IndexOf("**");
+                                        int endIndex_39_Toan = sLines_39_Toan[i].IndexOf("**", startIndex_39_Toan + 2);
+                                        if (endIndex_39_Toan > startIndex_39_Toan)
+                                        {
+                                            rtbContent_39_Toan.SelectionStart = rtbContent_39_Toan.GetFirstCharIndexFromLine(i) + startIndex_39_Toan + 2;
+                                            rtbContent_39_Toan.SelectionLength = endIndex_39_Toan - startIndex_39_Toan - 1;
+                                            rtbContent_39_Toan.SelectionFont = new Font(rtbContent_39_Toan.Font, FontStyle.Bold);
+                                        }
+                                    }
+                                }
+                            }
+                        };
+
                         tbContent_39_Toan.TabPages[FileName_39_Toan].Controls.Add(rtbContent_39_Toan);
                         break;
                     case ContentTypes_39_Toan.Image:
