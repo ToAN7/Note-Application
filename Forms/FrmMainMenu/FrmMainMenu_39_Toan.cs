@@ -53,6 +53,7 @@ namespace NoteApp
 
         private void trFolderLocation_39_Toan_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            e.Node.SelectedImageIndex = e.Node.ImageIndex;
             if (e.Button == MouseButtons.Left)
             {
                 if (e.Node.Text.Contains("."))
@@ -185,7 +186,7 @@ namespace NoteApp
                         if (MessageBox.Show("Are you sure you want to delete this folder?", "Delete Folder", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             Directory.Delete(SubFolderPath_39_Toan, true);
-                            loadFileIntoTreeView_39_Toan(SubFolderPath_39_Toan);
+                            loadFileIntoTreeView_39_Toan(FolderPath_39_Toan);
                             btnClearTab_39_Toan_Click(s, ev);
                         }
                     };

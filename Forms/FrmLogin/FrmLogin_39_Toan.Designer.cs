@@ -31,14 +31,14 @@
             this.lblTitle_39_Toan = new System.Windows.Forms.Label();
             this.grpRecentFol_39_Toan = new System.Windows.Forms.GroupBox();
             this.pnlGrab_39_Toan = new System.Windows.Forms.Panel();
-            this.btnClosed_39_Toan = new RoundButton_39_Toan();
             this.btnFolderPath_39_Toan = new System.Windows.Forms.Button();
             this.lblFolderPath_39_Toan = new System.Windows.Forms.Label();
             this.txtFolderPath_39_Toan = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlChooseFolder_39_Toan = new System.Windows.Forms.Panel();
             this.fldFolderPath_39_Toan = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnClosed_39_Toan = new RoundButton_39_Toan();
             this.pnlGrab_39_Toan.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlChooseFolder_39_Toan.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle_39_Toan
@@ -77,25 +77,6 @@
             this.pnlGrab_39_Toan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseDown);
             this.pnlGrab_39_Toan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlGrab_39_Toan_MouseUp);
             // 
-            // btnClosed_39_Toan
-            // 
-            this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
-            this.btnClosed_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
-            this.btnClosed_39_Toan.BorderRadius_39_Toan = 20;
-            this.btnClosed_39_Toan.BorderSize_39_Toan = 0;
-            this.btnClosed_39_Toan.FlatAppearance.BorderSize = 0;
-            this.btnClosed_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.btnClosed_39_Toan.ForeColor = System.Drawing.Color.DimGray;
-            this.btnClosed_39_Toan.Location = new System.Drawing.Point(641, 0);
-            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClosed_39_Toan.Name = "btnClosed_39_Toan";
-            this.btnClosed_39_Toan.Size = new System.Drawing.Size(136, 49);
-            this.btnClosed_39_Toan.TabIndex = 0;
-            this.btnClosed_39_Toan.Text = "X";
-            this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
-            this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
-            // 
             // btnFolderPath_39_Toan
             // 
             this.btnFolderPath_39_Toan.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,16 +109,35 @@
             this.txtFolderPath_39_Toan.TabIndex = 6;
             this.txtFolderPath_39_Toan.TextChanged += new System.EventHandler(this.txtFolderPath_39_Toan_TextChanged);
             // 
-            // panel1
+            // pnlChooseFolder_39_Toan
             // 
-            this.panel1.Controls.Add(this.lblFolderPath_39_Toan);
-            this.panel1.Controls.Add(this.btnFolderPath_39_Toan);
-            this.panel1.Controls.Add(this.txtFolderPath_39_Toan);
-            this.panel1.Location = new System.Drawing.Point(0, 263);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 32);
-            this.panel1.TabIndex = 7;
+            this.pnlChooseFolder_39_Toan.Controls.Add(this.lblFolderPath_39_Toan);
+            this.pnlChooseFolder_39_Toan.Controls.Add(this.btnFolderPath_39_Toan);
+            this.pnlChooseFolder_39_Toan.Controls.Add(this.txtFolderPath_39_Toan);
+            this.pnlChooseFolder_39_Toan.Location = new System.Drawing.Point(0, 263);
+            this.pnlChooseFolder_39_Toan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlChooseFolder_39_Toan.Name = "pnlChooseFolder_39_Toan";
+            this.pnlChooseFolder_39_Toan.Size = new System.Drawing.Size(780, 32);
+            this.pnlChooseFolder_39_Toan.TabIndex = 7;
+            // 
+            // btnClosed_39_Toan
+            // 
+            this.btnClosed_39_Toan.BackColor = System.Drawing.Color.LightGray;
+            this.btnClosed_39_Toan.BorderColor_39_Toan = System.Drawing.Color.Black;
+            this.btnClosed_39_Toan.BorderRadius_39_Toan = 20;
+            this.btnClosed_39_Toan.BorderSize_39_Toan = 0;
+            this.btnClosed_39_Toan.FlatAppearance.BorderSize = 0;
+            this.btnClosed_39_Toan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClosed_39_Toan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.btnClosed_39_Toan.ForeColor = System.Drawing.Color.DimGray;
+            this.btnClosed_39_Toan.Location = new System.Drawing.Point(641, 0);
+            this.btnClosed_39_Toan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClosed_39_Toan.Name = "btnClosed_39_Toan";
+            this.btnClosed_39_Toan.Size = new System.Drawing.Size(136, 49);
+            this.btnClosed_39_Toan.TabIndex = 0;
+            this.btnClosed_39_Toan.Text = "X";
+            this.btnClosed_39_Toan.UseVisualStyleBackColor = false;
+            this.btnClosed_39_Toan.Click += new System.EventHandler(this.btnClosed_39_Toan_Click);
             // 
             // FrmLogin_39_Toan
             // 
@@ -145,21 +145,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 582);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlChooseFolder_39_Toan);
             this.Controls.Add(this.grpRecentFol_39_Toan);
             this.Controls.Add(this.lblTitle_39_Toan);
             this.Controls.Add(this.pnlGrab_39_Toan);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmLogin_39_Toan";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmLogin_39_Toan_Load);
             this.pnlGrab_39_Toan.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlChooseFolder_39_Toan.ResumeLayout(false);
+            this.pnlChooseFolder_39_Toan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -171,7 +168,7 @@
         private System.Windows.Forms.Button btnFolderPath_39_Toan;
         private System.Windows.Forms.Label lblFolderPath_39_Toan;
         private System.Windows.Forms.TextBox txtFolderPath_39_Toan;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlChooseFolder_39_Toan;
         private System.Windows.Forms.FolderBrowserDialog fldFolderPath_39_Toan;
         private RoundButton_39_Toan btnClosed_39_Toan;
     }

@@ -66,7 +66,7 @@ public class RoundButton_39_Toan: Button
 
     // Methods
 
-    private GraphicsPath CreateFigurePath(Rectangle rect, float radius)
+    private GraphicsPath CreateFigurePath_39_Toan(Rectangle rect, float radius)
     {
         GraphicsPath path_39_Toan = new GraphicsPath();
         path_39_Toan.StartFigure();
@@ -102,8 +102,8 @@ public class RoundButton_39_Toan: Button
         {
             // using can be use in this way so that the resources are disposed of after the block is executed
             // its helpful in case of memory management
-            using (GraphicsPath pathSurface_39_Toan = CreateFigurePath(rectangleSurface_39_Toan, borderRadius_39_Toan))
-            using (GraphicsPath pathBorder_39_Toan = CreateFigurePath(rectangleBorder_39_Toan, borderRadius_39_Toan - borderSize_39_Toan))
+            using (GraphicsPath pathSurface_39_Toan = CreateFigurePath_39_Toan(rectangleSurface_39_Toan, borderRadius_39_Toan))
+            using (GraphicsPath pathBorder_39_Toan = CreateFigurePath_39_Toan(rectangleBorder_39_Toan, borderRadius_39_Toan - borderSize_39_Toan))
             using (Pen penSurface_39_Toan = new Pen(this.Parent.BackColor, borderSize_39_Toan))
             using (Pen penBorder_39_Toan = new Pen(borderColor_39_Toan, borderSize_39_Toan))
             {
@@ -136,10 +136,10 @@ public class RoundButton_39_Toan: Button
     protected override void OnHandleCreated(EventArgs e)
     {
         base.OnHandleCreated(e);
-        this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+        this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged_39_Toan);
     }
 
-    private void Container_BackColorChanged(object sender, EventArgs e)
+    private void Container_BackColorChanged_39_Toan(object sender, EventArgs e)
     {
         this.Invalidate();
     }

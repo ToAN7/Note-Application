@@ -81,14 +81,6 @@ namespace NoteApp.Forms.FrmContent
                         rtbContent_39_Toan.BorderStyle = BorderStyle.None;
                         rtbContent_39_Toan.Show();
 
-                        rtbContent_39_Toan.MouseClick += (sender, e) =>
-                        {
-                            if (e.Button == MouseButtons.Right)
-                            {
-                                rtbContent_39_Toan.ContextMenuStrip.Show();
-                            }
-                        };
-
                         rtbContent_39_Toan.KeyDown += (sender, e) =>
                         {
                             if (e.Control && e.KeyCode == Keys.S)
@@ -168,7 +160,7 @@ namespace NoteApp.Forms.FrmContent
                     Items = { tsbClose_39_Toan, tsbCloseAll_39_Toan },
                     TopLevel = true,
                 };
-                tbContent_39_Toan.TabPages[FileName_39_Toan].MouseClick += (sender, e) =>
+                tbContent_39_Toan.TabPages[FileName_39_Toan].Controls[0].MouseClick += (sender, e) =>
                 {
                     if (e.Button == MouseButtons.Right)
                     {
